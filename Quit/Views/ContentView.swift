@@ -20,7 +20,7 @@ struct ContentView: View {
                 // viewModel to ...
                 List(0..<10) { _ in
                     VStack{
-                        Text("Addiction")
+                        AddictionCellView()
                         // on press go furhter
                     }
                 }
