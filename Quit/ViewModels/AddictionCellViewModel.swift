@@ -8,7 +8,14 @@
 
 import Foundation
 
-class AddictionVellViewModel {
+class AddictionCellViewModel {
+    
+    let addiction: Addiction
+    
+    init(_ addiction: Addiction) {
+        self.addiction = addiction
+    }
+    
     func getCurrentData() -> String {
         let date = Date()
         let dateFormatter = DateFormatter()

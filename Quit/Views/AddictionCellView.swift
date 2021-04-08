@@ -11,14 +11,17 @@ import SwiftUI
 
 struct AddictionCellView: View {
     var body: some View {
-        let addictionCellVM = AddictionVellViewModel()
+        let addictionCellVM = AddictionCellViewModel(Addiction())
         HStack{
-            Text("Tekst").font(.largeTitle)
+            Text("57").clipShape(Circle()).font(.largeTitle).scaledToFit()
             HStack {
                 VStack(alignment: .leading) {
-                    Text("You dropped smt since")
-                    Text(addictionCellVM.getCurrentData()).fontWeight(.light)
+                    Text("You dropped smt since").font(.body)
+                    Spacer()
+                    Spacer()
+                    Text(addictionCellVM.getCurrentData()).font(.caption)
                 }.padding(.leading,15)
+                Spacer()
                 VStack(){
                     Text("Hello World")
                     Text("Hello World")
