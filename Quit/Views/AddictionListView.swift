@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct AddictionListView: View {
+    @ObservedObject var addictionListVM: AddictionListViewModel
     var body: some View {
         NavigationView {
             ZStack{
                 List(0..<10) { _ in
                     VStack{
                         AddictionCellView()
-                        // on press go furhter
                     }
                 }
                 VStack{
@@ -51,8 +51,3 @@ struct AddictionListView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddictionListView()
-    }
-}

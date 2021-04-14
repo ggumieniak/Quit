@@ -8,16 +8,16 @@
 
 import Foundation
 
-class AddictionCellViewModel {
+class AddictionCellViewModel: ObservableObject {
     
-    let addiction: Addiction
+    @Published var addiction: Addiction
     
     init(_ addiction: Addiction) {
         self.addiction = addiction
     }
     
     func getCurrentData() -> String {
-        let date = Date()
+        let date = addiction.dateStart
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         return dateFormatter.string(from: date)

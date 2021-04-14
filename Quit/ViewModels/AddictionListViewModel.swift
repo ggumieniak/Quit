@@ -8,6 +8,7 @@
 
 import Foundation
 
-class AddictionListViewModel {
+class AddictionListViewModel: ObservableObject {
+    @Published private var addictionList = [Addiction]()
     
 }

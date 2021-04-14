@@ -10,8 +10,9 @@ import Foundation
 import SwiftUI
 
 struct AddictionCellView: View {
+//    @ObservedObject var addictionCellVM: AddictionCellViewModel
+    
     var body: some View {
-        let addictionCellVM = AddictionCellViewModel(Addiction())
         HStack{
             Text("57").clipShape(Circle()).font(.largeTitle).scaledToFit()
             HStack {
@@ -19,7 +20,7 @@ struct AddictionCellView: View {
                     Text("You dropped smt since").font(.body)
                     Spacer()
                     Spacer()
-                    Text(addictionCellVM.getCurrentData()).font(.caption)
+//                    Text(addictionCellVM.getCurrentData()).font(.caption)
                 }.padding(.leading,15)
                 Spacer()
                 VStack(){
@@ -31,11 +32,3 @@ struct AddictionCellView: View {
         }.padding(10)
     }
 }
-
-struct AddictionCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddictionCellView()
-        
-    }
-}
-
