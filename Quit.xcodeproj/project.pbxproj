@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50171688262704C0002187C8 /* Date+Difference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50171687262704C0002187C8 /* Date+Difference.swift */; };
 		503D1878261E0D0800239E43 /* QuitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1877261E0D0800239E43 /* QuitTests.swift */; };
 		503D1882261E0D4300239E43 /* AddictionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1881261E0D4300239E43 /* AddictionCellView.swift */; };
 		503D188A261E190600239E43 /* AddictionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1889261E190600239E43 /* AddictionCellViewModel.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		50171687262704C0002187C8 /* Date+Difference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Difference.swift"; sourceTree = "<group>"; };
 		503D1875261E0D0700239E43 /* QuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		503D1877261E0D0800239E43 /* QuitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitTests.swift; sourceTree = "<group>"; };
 		503D1879261E0D0800239E43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50171686262704A7002187C8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				50171687262704C0002187C8 /* Date+Difference.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		503D1876261E0D0800239E43 /* QuitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +128,7 @@
 		50BE16C724EACB970093B38F /* Quit */ = {
 			isa = PBXGroup;
 			children = (
+				50171686262704A7002187C8 /* Extensions */,
 				503D1888261E18F700239E43 /* ViewModels */,
 				503D1885261E0F6B00239E43 /* Models */,
 				50BE16DD24EACC2C0093B38F /* AppDelegates */,
@@ -270,6 +281,7 @@
 				503D1882261E0D4300239E43 /* AddictionCellView.swift in Sources */,
 				503D188A261E190600239E43 /* AddictionCellViewModel.swift in Sources */,
 				503D1894261E21F600239E43 /* AddictionListViewModel.swift in Sources */,
+				50171688262704C0002187C8 /* Date+Difference.swift in Sources */,
 				50BE16C924EACB970093B38F /* AppDelegate.swift in Sources */,
 				50BE16CB24EACB970093B38F /* SceneDelegate.swift in Sources */,
 				50BE16CD24EACB970093B38F /* AddictionListView.swift in Sources */,

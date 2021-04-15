@@ -8,16 +8,22 @@
 
 import Foundation
 
-protocol AddictionType {
+protocol AddictionType: Identifiable {
+    var id: Int { get }
     var name: String { get }
-    var duration: Double { get }
+    var duration: Date { get }
     var dateStart: Date { get }
 }
 
 struct Addiction: AddictionType {
+    var id: Int 
+    
     var name: String
     
-    var duration: Double
+    var duration: Date {
+        let today = Date()
+        return today
+    }
     
     var dateStart: Date
     

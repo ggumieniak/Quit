@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct AddictionListView: View {
-    @ObservedObject var addictionListVM: AddictionListViewModel
+    @StateObject private var addictionListVM: AddictionListViewModel = AddictionListViewModel()
     var body: some View {
         NavigationView {
             ZStack{
-                List(0..<10) { _ in
+                List(addictionListVM.addictions) { addiction in
                     VStack{
-                        AddictionCellView()
+                        AddictionCellView(addiction: addiction)
                     }
                 }
                 VStack{
@@ -47,7 +47,6 @@ struct AddictionListView: View {
                     })
                 }
             }
-        }
+        }.onAppear(perform: addictionListVM.createExampleAddictions)
     }
 }
-

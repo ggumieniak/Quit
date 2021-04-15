@@ -10,17 +10,15 @@ import Foundation
 import SwiftUI
 
 struct AddictionCellView: View {
-//    @ObservedObject var addictionCellVM: AddictionCellViewModel
+    @ObservedObject var viewModel: AddictionCellViewModel
     
     var body: some View {
         HStack{
-            Text("57").clipShape(Circle()).font(.largeTitle).scaledToFit()
+            Text(viewModel.addiction.duration.description).clipShape(Circle()).font(.largeTitle).scaledToFit()
             HStack {
                 VStack(alignment: .leading) {
-                    Text("You dropped smt since").font(.body)
-                    Spacer()
-                    Spacer()
-//                    Text(addictionCellVM.getCurrentData()).font(.caption)
+                    Text(viewModel.addiction.name).font(.body)
+                    Text(viewModel.addiction.dateStart.description).font(.caption)
                 }.padding(.leading,15)
                 Spacer()
                 VStack(){
@@ -30,5 +28,11 @@ struct AddictionCellView: View {
                 }
             }
         }.padding(10)
+    }
+}
+
+extension AddictionCellView {
+    init(addiction: Addiction) {
+        self.viewModel = AddictionCellViewModel(addiction)
     }
 }
