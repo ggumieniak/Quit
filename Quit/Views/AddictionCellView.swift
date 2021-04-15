@@ -14,23 +14,28 @@ struct AddictionCellView: View {
     
     var body: some View {
         HStack{
-            Text(viewModel.addiction.duration.description).clipShape(Circle()).font(.largeTitle).scaledToFit()
+            //FIXME: Cut the day from addictionStart to actual day of abstinent
+            Text(viewModel.addiction.duration.description)
+                .frame(width: 70, height: 70, alignment: .center)
+                .clipShape(Circle())
+            Spacer()
             HStack {
                 VStack(alignment: .leading) {
                     Text(viewModel.addiction.name).font(.body)
                     Text(viewModel.addiction.dateStart.description).font(.caption)
-                }.padding(.leading,15)
-                Spacer()
-                VStack(){
-                    Text("Hello World")
-                    Text("Hello World")
-                    Text("Hello World")
+                }
+                VStack {
+                    Spacer()
+                    //TODO: - Adds a localized strings
+                    //TODO: - Adds to saved money value
+                    Text("Zaoszczedziles juz").font(.caption)
                 }
             }
-        }.padding(10)
+        }
     }
 }
 
+//MARK: - AddictionCellView init
 extension AddictionCellView {
     init(addiction: Addiction) {
         self.viewModel = AddictionCellViewModel(addiction)

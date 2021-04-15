@@ -9,7 +9,7 @@
 import Foundation
 
 class AddictionListViewModel: ObservableObject {
-    @Published var addictions = [Addiction]()
+    @Published private(set) var addictions = [Addiction]()
     
     
     func createExampleAddictions() {
