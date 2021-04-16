@@ -14,10 +14,11 @@ struct AddictionCellView: View {
     
     var body: some View {
         HStack{
-            //FIXME: Cut the day from addictionStart to actual day of abstinent
-            Text(viewModel.addiction.duration.description)
+            //TODO: Add color depence on duration of abstitence
+            Circle().foregroundColor(.blue)
                 .frame(width: 70, height: 70, alignment: .center)
-                .clipShape(Circle())
+                //FIXME: Cut the day from addictionStart to actual day of abstinent
+                .overlay(Text(viewModel.addiction.duration.description).aspectRatio(1,contentMode: .fit))
             Spacer()
             HStack {
                 VStack(alignment: .leading) {
@@ -26,8 +27,8 @@ struct AddictionCellView: View {
                 }
                 VStack {
                     Spacer()
-                    //TODO: - Adds a localized strings
-                    //TODO: - Adds to saved money value
+                    //TODO: Adds a localized strings
+                    //TODO: Adds to saved money value
                     Text("Zaoszczedziles juz").font(.caption)
                 }
             }

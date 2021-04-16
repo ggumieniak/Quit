@@ -22,17 +22,15 @@ struct AddictionListView: View {
                     Spacer()
                     HStack{
                         Spacer()
-                        Button(action: {
-                            //TODO: make segue to addAddiction
-                            print("AddNewAddiction")
-                        }){
-                            Image(systemName: "plus").foregroundColor(.white)
-                        }.padding()
-                        //TODO: Make button a bit bigger
-                        .background(Color.green.opacity(0.8))
-                        .clipShape(Circle())
-                        .padding(.trailing)
-                        
+                        NavigationLink(
+                            destination: AddNewAddictionView(),
+                            label: {
+                                Image(systemName: "plus").foregroundColor(.white).font(.title)
+                            })//TODO: Make button a bit bigger
+                            .frame(width: 50, height: 50, alignment: .center)
+                            .background(Color.green.opacity(0.8))
+                            .clipShape(Circle())
+                            .padding(.trailing)
                     }
                 }
             }.navigationTitle("Quit app")
