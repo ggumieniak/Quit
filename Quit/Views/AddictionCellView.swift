@@ -32,7 +32,7 @@ struct AddictionCellView: View {
                     Text("Zaoszczedziles juz").font(.caption)
                 }
             }
-        }
+        }.cornerRadius(25)
     }
 }
 

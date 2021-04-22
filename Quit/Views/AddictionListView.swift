@@ -12,30 +12,30 @@ struct AddictionListView: View {
     @StateObject private var addictionListVM: AddictionListViewModel = AddictionListViewModel()
     var body: some View {
         NavigationView {
-            ZStack{
-                List(addictionListVM.addictions) { addiction in
-                    VStack{
+            ZStack {
+                List {
+                    ForEach(addictionListVM.addictions) { addiction in
                         AddictionCellView(addiction: addiction)
-                    }
+                    }.onDelete(perform: addictionListVM.removeAddiction)
                 }
-                VStack{
+                VStack {
                     Spacer()
-                    HStack{
+                    HStack {
                         Spacer()
                         NavigationLink(
                             destination: AddNewAddictionView(),
                             label: {
                                 Image(systemName: "plus").foregroundColor(.white).font(.title)
-                            })//TODO: Make button a bit bigger
+                            })
                             .frame(width: 50, height: 50, alignment: .center)
                             .background(Color.green.opacity(0.8))
                             .clipShape(Circle())
-                            .padding(.trailing)
+                            .padding(25)
                     }
                 }
             }.navigationTitle("Quit app")
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button(action:{
                         //TODO: Make sort function via days
                         //TODO: Make sort by selected option
@@ -43,6 +43,9 @@ struct AddictionListView: View {
                     }, label: {
                         Image(systemName: "arrow.up.arrow.down.circle").font(.largeTitle)
                     })
+                }
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    EditButton()
                 }
             }
         }.onAppear(perform: addictionListVM.createExampleAddictions)

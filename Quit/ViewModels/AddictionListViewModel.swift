@@ -9,8 +9,12 @@
 import Foundation
 
 class AddictionListViewModel: ObservableObject {
-    @Published private(set) var addictions = [Addiction]()
+    @Published var addictions = [Addiction]()
     
+    
+    func removeAddiction(at offset: IndexSet) {
+        addictions.remove(atOffsets: offset)
+    }
     
     func createExampleAddictions() {
         let yesterday = Calendar.current.date(byAdding: .day,value: -1, to: Date())!

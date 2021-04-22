@@ -9,8 +9,27 @@
 import SwiftUI
 
 struct AddNewAddictionView: View {
+    @State var string = ""
     var body: some View {
-        Text("Hey, that's great you're doing new habbits :)")
+        //TODO: AddictionView
+        VStack{
+            Form {
+                TextEditor(text: $string).textFieldStyle(RoundedBorderTextFieldStyle())
+                Section(header: Text("Moj tekst")) {
+
+                }.padding()
+            }
+            Form {
+                Section(header: Text("Moj tekst")) {
+                    TextEditor(text: $string).textFieldStyle(RoundedBorderTextFieldStyle())
+                }.padding()
+            }
+            Form {
+                Section(header: Text("Moj tekst")) {
+                    TextEditor(text: $string).textFieldStyle(RoundedBorderTextFieldStyle())
+                }.padding()
+            }
+        }
     }
 }
 
