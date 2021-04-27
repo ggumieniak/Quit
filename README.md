@@ -3,9 +3,10 @@
 Apps which helps you to track your milestones when you're dropping some addiction.
 It allows you to: 
 * Add/delete new addiction
-* Track your duration since drop addiction 
+* Track your duration since drop addiction
+* Track saved money each addiction
 * Saves data to local storage
-* Make notification about milestones
+* Acquiring notification about milestones
 * Able to edit current addiction trackers
 
 

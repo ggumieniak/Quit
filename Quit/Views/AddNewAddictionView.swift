@@ -9,26 +9,35 @@
 import SwiftUI
 
 struct AddNewAddictionView: View {
-    @State var string = ""
+    @State var title = ""
+    @State var description = ""
+    @State var date = Date()
     var body: some View {
         //TODO: AddictionView
-        VStack{
-            Form {
-                TextEditor(text: $string).textFieldStyle(RoundedBorderTextFieldStyle())
-                Section(header: Text("Moj tekst")) {
-
-                }.padding()
+        VStack(alignment: .leading) {
+            Text("Name of habit").font(.title3).padding()
+            TextField("Title",text: $title).textFieldStyle(RoundedBorderTextFieldStyle()).padding()
+            Divider()
+            Text("Description").font(.title3).padding()
+            TextEditor(text: $description)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .border(Color.init(.separator))
+                .cornerRadius(3)
+                .padding()
+            Divider()
+            HStack {
+                VStack {
+                    Text("Start Date").font(.title3).padding()
+                    DatePicker("", selection: $date).datePickerStyle(DefaultDatePickerStyle())
+                        .labelsHidden()
+                }
+                VStack {
+                    Text("Money per day").padding()
+                    TextField("",text:$title).textFieldStyle(RoundedBorderTextFieldStyle())
+                }
             }
-            Form {
-                Section(header: Text("Moj tekst")) {
-                    TextEditor(text: $string).textFieldStyle(RoundedBorderTextFieldStyle())
-                }.padding()
-            }
-            Form {
-                Section(header: Text("Moj tekst")) {
-                    TextEditor(text: $string).textFieldStyle(RoundedBorderTextFieldStyle())
-                }.padding()
-            }
+            Divider()
+            Spacer()
         }
     }
 }

@@ -29,10 +29,12 @@ struct AddictionCellView: View {
                     Spacer()
                     //TODO: Adds a localized strings
                     //TODO: Adds to saved money value
-                    Text("Zaoszczedziles juz").font(.caption)
+                    Text("You saved already: value").font(.caption)
                 }
             }
-        }.cornerRadius(25)
+        }
+        .padding(.trailing, 10)
+        .cornerRadius(10)
     }
 }
 
