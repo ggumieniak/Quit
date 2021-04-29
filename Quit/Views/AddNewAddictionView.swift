@@ -15,30 +15,44 @@ struct AddNewAddictionView: View {
     var body: some View {
         //TODO: AddictionView
         VStack(alignment: .leading) {
-            Text("Name of habit").font(.title3).padding()
-            TextField("Title",text: $title).textFieldStyle(RoundedBorderTextFieldStyle()).padding()
+            Text("Name")
+                .font(.title3)
+            TextField("Habit name",text: $title)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
             Divider()
-            Text("Description").font(.title3).padding()
+            Text("Description").font(.title3)
             TextEditor(text: $description)
+                .frame(maxHeight: 200)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .border(Color.init(.separator))
                 .cornerRadius(3)
-                .padding()
             Divider()
             HStack {
                 VStack {
-                    Text("Start Date").font(.title3).padding()
-                    DatePicker("", selection: $date).datePickerStyle(DefaultDatePickerStyle())
+                    Text("Start Date").font(.title3)
+                    DatePicker("", selection: $date, displayedComponents: [.date] )
+                        .datePickerStyle(DefaultDatePickerStyle())
                         .labelsHidden()
                 }
                 VStack {
-                    Text("Money per day").padding()
-                    TextField("",text:$title).textFieldStyle(RoundedBorderTextFieldStyle())
+                    Text("Money per day")
+                    TextField("",text:$title)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .keyboardType(.decimalPad)
                 }
             }
             Divider()
-            Spacer()
-        }
+            Button(action: {
+                print("Save")
+            }, label: {
+                Text("save")
+            })
+            .frame(maxWidth: .infinity)
+            .frame(height: 50)
+            .foregroundColor(.white)
+            .background(Color.blue)
+            .cornerRadius(25)
+        }.padding()
     }
 }
 

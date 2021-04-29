@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		501EE7AC263AA70100F7ECAB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501EE7AB263AA70100F7ECAB /* Colors.swift */; };
 		503D1878261E0D0800239E43 /* QuitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1877261E0D0800239E43 /* QuitTests.swift */; };
 		503D1882261E0D4300239E43 /* AddictionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1881261E0D4300239E43 /* AddictionCellView.swift */; };
 		503D188A261E190600239E43 /* AddictionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1889261E190600239E43 /* AddictionCellViewModel.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		501EE7AB263AA70100F7ECAB /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		503D1875261E0D0700239E43 /* QuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		503D1877261E0D0800239E43 /* QuitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitTests.swift; sourceTree = "<group>"; };
 		503D1879261E0D0800239E43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		501EE7AA263AA6E800F7ECAB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				501EE7AB263AA70100F7ECAB /* Colors.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		503D1876261E0D0800239E43 /* QuitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +130,7 @@
 		50BE16C724EACB970093B38F /* Quit */ = {
 			isa = PBXGroup;
 			children = (
+				501EE7AA263AA6E800F7ECAB /* Utils */,
 				503D1888261E18F700239E43 /* ViewModels */,
 				503D1885261E0F6B00239E43 /* Models */,
 				50BE16DD24EACC2C0093B38F /* AppDelegates */,
@@ -270,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				503D1898261E220C00239E43 /* Addiction.swift in Sources */,
+				501EE7AC263AA70100F7ECAB /* Colors.swift in Sources */,
 				50A9537026297347006BA74B /* AddNewAddictionView.swift in Sources */,
 				503D1882261E0D4300239E43 /* AddictionCellView.swift in Sources */,
 				503D188A261E190600239E43 /* AddictionCellViewModel.swift in Sources */,

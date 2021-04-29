@@ -13,10 +13,16 @@ struct AddictionListView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                List {
-                    ForEach(addictionListVM.addictions) { addiction in
-                        AddictionCellView(addiction: addiction)
-                    }.onDelete(perform: addictionListVM.removeAddiction)
+                ScrollView {
+                    LazyVStack {
+                        ForEach(addictionListVM.addictions) { addiction in
+                            NavigationLink(destination: Text(addiction.name)){
+                                LazyVStack {
+                                    AddictionCellView(addiction: addiction)
+                                }
+                            }.buttonStyle(PlainButtonStyle())
+                        }
+                    }.padding()
                 }
                 VStack {
                     Spacer()
@@ -34,20 +40,7 @@ struct AddictionListView: View {
                     }
                 }
             }.navigationTitle("Quit app")
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    Button(action:{
-                        //TODO: Make sort function via days
-                        //TODO: Make sort by selected option
-                        print("Sort by days")
-                    }, label: {
-                        Image(systemName: "arrow.up.arrow.down.circle").font(.largeTitle)
-                    })
-                }
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-            }
-        }.onAppear(perform: addictionListVM.createExampleAddictions)
+        }
+        .onAppear(perform: addictionListVM.createExampleAddictions)
     }
 }
