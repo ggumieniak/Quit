@@ -11,48 +11,57 @@ import SwiftUI
 struct AddictionListView: View {
     @StateObject private var addictionListVM: AddictionListViewModel = AddictionListViewModel()
     init() {
-        UINavigationBar.appearance().barTintColor = UIColor(named: "BackgroundMain")        
+        UINavigationBar.appearance().barTintColor = UIColor(named: "BackgroundMain")
+        UITabBar.appearance().barTintColor = UIColor(named: "BackgroundMain")
     }
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color("BackgroundMain").ignoresSafeArea(.all)
-                ScrollView {
-                    LazyVStack {
-                        ForEach(addictionListVM.addictions) { addiction in
-                            NavigationLink(destination: AddictionDetailView(), label: {
-                                AddictionCellView(addiction: addiction)
-                            }).buttonStyle(PlainButtonStyle())
+        TabView {
+            NavigationView {
+                ZStack {
+                    Color("BackgroundMain").ignoresSafeArea(.all)
+                    ScrollView {
+                        VStack(alignment: .leading) {
+                            Text("Habbits").font(.title).bold().frame(alignment: .trailing).padding()
+                            ForEach(addictionListVM.addictions, id: \.id) { addiction in
+                                AddictionCellView(addiction: addiction).onTapGesture {
+                                    addictionListVM.isShow = true
+                                    addictionListVM.showView = addiction
+                                }
+                            }
                         }
-                    }.padding()
-                }
-                VStack {
-                    Spacer()
-                    HStack {
+                        NavigationLink("", destination: AddictionDetailView(detail: addictionListVM.showView?.name ?? "Invalid Request"), isActive: $addictionListVM.isShow)
+                    }
+                    VStack {
                         Spacer()
-                        NavigationLink(
-                            destination: AddNewAddictionView(),
-                            label: {
-                                Image(systemName: "plus").foregroundColor(.white).font(.title)
-                            })
-                            .frame(idealWidth: 50, maxWidth: 75, idealHeight: 50, maxHeight: 75, alignment: .center)
-                            .background(Color.green.opacity(0.8))
-                            .clipShape(Circle())
-                            .padding(25)
+                        HStack {
+                            Spacer()
+                            NavigationLink(
+                                destination: AddNewAddictionView(),
+                                label: {
+                                    Image(systemName: "plus").foregroundColor(.white).font(.title)
+                                })
+                                .frame(idealWidth: 50, maxWidth: 75, idealHeight: 50, maxHeight: 75, alignment: .center)
+                                .background(Color.green.opacity(0.8))
+                                .clipShape(Circle())
+                                .padding(25)
+                        }
                     }
                 }
-            }
-            .navigationBarTitle("Habit tracker!", displayMode: .inline)
+                
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
+            }.tabItem { Text("Habbits").buttonStyle(PlainButtonStyle()) }
+            Text("hahaha").tabItem { Text("Mateusz") }
         }
-        .toolbar {
-            ToolbarItemGroup(placement: .navigationBarLeading) {
-                NavigationLink(
-                    destination: AddNewAddictionView(),
-                    label: {
-                        Image(systemName: "plus").foregroundColor(.white).font(.title)
-                    })
-            }
-        }
+        //        .toolbar {
+        //            ToolbarItemGroup(placement: .navigationBarLeading) {
+        //                NavigationLink(
+        //                    destination: AddNewAddictionView(),
+        //                    label: {
+        //                        Image(systemName: "plus").foregroundColor(.white).font(.title)
+        //                    })
+        //            }
+        //        }
         .onAppear(perform: addictionListVM.createExampleAddictions)
     }
 }

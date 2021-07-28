@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import SwiftUI
 
 class AddictionListViewModel: ObservableObject {
     @Published var addictions = [Addiction]()
+    @Published var showView: Addiction?
+    @Published var isShow: Bool = false
     
     
     func removeAddiction(at offset: IndexSet) {
@@ -28,5 +31,6 @@ class AddictionListViewModel: ObservableObject {
         addictions.append(Addiction(id: 8,name: "Kamień", dateStart: yesterday))
         addictions.append(Addiction(id: 9,name: "Makaron", dateStart: yesterday))
         addictions.append(Addiction(id: 10,name: "Powietrze", dateStart: yesterday))
+        addictions.append(Addiction(id: 10,name: "Bednarz Bednarz Bednarz Bednarz Bednarz Bednarz ", dateStart: yesterday))
     }
 }

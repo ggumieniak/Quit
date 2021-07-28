@@ -9,17 +9,19 @@
 import SwiftUI
 
 struct AddictionDetailView: View {
+    @State var detail: String
     
     var body: some View {
         ZStack {
             Color("BackgroundCell").ignoresSafeArea(.all)
-            Text("Detail")
+            Text("\(detail)")
         }
     }
 }
 
+
 struct AddictionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AddictionDetailView()
+        AddictionDetailView(detail: "Test")
     }
 }
