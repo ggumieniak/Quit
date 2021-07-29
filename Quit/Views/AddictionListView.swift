@@ -62,7 +62,7 @@ struct AddictionListView: View {
         //                    })
         //            }
         //        }
-        .onAppear(perform: addictionListVM.createExampleAddictions)
+        .onAppear(perform: addictionListVM.fetchData)
     }
 }
 

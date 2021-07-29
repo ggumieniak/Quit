@@ -15,12 +15,12 @@ struct AddictionCellView: View {
     var body: some View {
         GeometryReader { geometry in
             HStack {
-                Circle().foregroundColor(Color("DetailGrey")).frame(width: geometry.size.width * 0.2).overlay(Text("99999999").aspectRatio(1,contentMode: .fit).lineLimit(2))
+                Circle().foregroundColor(Color("DetailGrey")).frame(width: geometry.size.width * 0.2).overlay(Text("\(viewModel.addiction.duration)").aspectRatio(1,contentMode: .fit).lineLimit(2))
                 VStack(alignment: .leading) {
                     Text(viewModel.addiction.name)
                         .lineLimit(1)
                         .font(.title)
-                    Text("2012-01-01")
+                    Text(viewModel.addiction.dateStart.toString())
                         .font(.footnote)
                     Text("you saved now")
                         .font(.footnote)
@@ -36,7 +36,7 @@ struct AddictionCellView: View {
 
 struct AddictionCellView_Previews: PreviewProvider {
     static var previews: some View {
-        AddictionCellView(addiction: Addiction(id: 1, name: "BednarzBednarzBednarz", dateStart: Date()))
+        AddictionCellView(addiction: Addiction.example)
     }
 }
 
