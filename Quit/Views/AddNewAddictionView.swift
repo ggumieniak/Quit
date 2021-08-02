@@ -26,14 +26,12 @@ struct AddNewAddictionView: View {
                     .font(.title3)
                 TextField("",text: $title)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                Divider()
                 Text("Description").font(.title3)
                 TextEditor(text: $description)
                     .frame(maxHeight: 200)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .border(Color.init(.separator))
                     .cornerRadius(10)
-                Divider()
                 HStack {
                     VStack {
                         Text("Start Date").font(.title3)
@@ -48,7 +46,7 @@ struct AddNewAddictionView: View {
                             .keyboardType(.decimalPad)
                     }
                 }
-                Divider()
+                Spacer()
                 Button(action: {
                     print("Save")
                 }, label: {
@@ -58,6 +56,7 @@ struct AddNewAddictionView: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 50)
                 .background(Color("SaveDarkColor"))
+                .overlay(RoundedRectangle(cornerRadius: 25).stroke(lineWidth: 3).foregroundColor(Color("DetailGrey")))
                 .cornerRadius(25)
             }
             .padding()
