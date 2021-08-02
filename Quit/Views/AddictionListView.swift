@@ -24,6 +24,7 @@ struct AddictionListView: View {
                         .font(.largeTitle)
                         .bold()
                         .padding(.leading)
+                        .padding(.top)
                     List {
                         ForEach(addictionListVM.addictions, id: \.id) { addiction in
                             AddictionCellView(addiction: addiction)
@@ -32,15 +33,9 @@ struct AddictionListView: View {
                                     addictionListVM.isShow = true
                                     addictionListVM.showView = addiction
                                 }
-                                .alert(isPresented: self.$showAlert, content: {
-                                    Alert(title: Text("Hey"))
-                                })
                         }
                         .onDelete(perform: { indexSet in
                             print("Delete")
-                        })
-                        .onHover(perform: { hovering in
-                            self.showAlert = true
                         })
                     }
                     .listStyle(PlainListStyle())
@@ -55,12 +50,11 @@ struct AddictionListView: View {
                             label: {
                                 Image(systemName: "plus").foregroundColor(.white).font(.title)
                             })
-                            .frame(idealWidth: 50, maxWidth: 75, idealHeight: 50, maxHeight: 75, alignment: .center)
+                            .frame(minWidth: 30, idealWidth: 50, maxWidth: 80, minHeight: 30, idealHeight: 50, maxHeight: 80, alignment: .center)
                             .background(Color.green.opacity(0.8))
                             .clipShape(Circle())
                             .padding(25)
                     }
-                    
                 }
             }
             .navigationBarHidden(true)

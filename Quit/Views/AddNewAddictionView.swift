@@ -12,47 +12,58 @@ struct AddNewAddictionView: View {
     @State var title = ""
     @State var description = ""
     @State var date = Date()
+    
+    init() {
+        UITextField.appearance().backgroundColor = UIColor(named: "BackgroundCell")
+        UITextView.appearance().backgroundColor = UIColor(named: "BackgroundCell")
+    }
+    
     var body: some View {
-        //TODO: AddictionView
-        VStack(alignment: .leading) {
-            Text("Name")
-                .font(.title3)
-            TextField("Habit name",text: $title)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            Divider()
-            Text("Description").font(.title3)
-            TextEditor(text: $description)
-                .frame(maxHeight: 200)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .border(Color.init(.separator))
-                .cornerRadius(3)
-            Divider()
-            HStack {
-                VStack {
-                    Text("Start Date").font(.title3)
-                    DatePicker("", selection: $date, displayedComponents: [.date] )
-                        .datePickerStyle(DefaultDatePickerStyle())
-                        .labelsHidden()
+        ZStack(alignment: .top){
+            Color("BackgroundMain").ignoresSafeArea(.all)
+            VStack(alignment: .leading) {
+                Text("Name")
+                    .font(.title3)
+                TextField("",text: $title)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                Divider()
+                Text("Description").font(.title3)
+                TextEditor(text: $description)
+                    .frame(maxHeight: 200)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .border(Color.init(.separator))
+                    .cornerRadius(10)
+                Divider()
+                HStack {
+                    VStack {
+                        Text("Start Date").font(.title3)
+                        DatePicker("", selection: $date, displayedComponents: [.date] )
+                            .datePickerStyle(DefaultDatePickerStyle())
+                            .labelsHidden()
+                    }
+                    VStack {
+                        Text("Money per day")
+                        TextField("",text:$title)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.decimalPad)
+                    }
                 }
-                VStack {
-                    Text("Money per day")
-                    TextField("",text:$title)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .keyboardType(.decimalPad)
-                }
+                Divider()
+                Button(action: {
+                    print("Save")
+                }, label: {
+                    Text("Save")
+                        .bold()
+                })
+                .frame(maxWidth: .infinity)
+                .frame(height: 50)
+                .background(Color("SaveDarkColor"))
+                .cornerRadius(25)
             }
-            Divider()
-            Button(action: {
-                print("Save")
-            }, label: {
-                Text("save")
-            })
-            .frame(maxWidth: .infinity)
-            .frame(height: 50)
-            .foregroundColor(.white)
-            .background(Color.blue)
-            .cornerRadius(25)
-        }.padding()
+            .padding()
+        }
+        .foregroundColor(Color("TextColor"))
+        .background(Color("BackgroundMain"))
     }
 }
 

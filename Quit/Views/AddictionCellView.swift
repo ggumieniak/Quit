@@ -22,6 +22,7 @@ struct AddictionCellView: View {
                         .font(.title)
                     Text(viewModel.addiction.dateStart.toString())
                         .font(.footnote)
+                        .bold()
                     Text("you saved now")
                         .font(.footnote)
                         .foregroundColor(Color("Citrine"))
@@ -29,6 +30,7 @@ struct AddictionCellView: View {
             }
             .padding()
         }
+        .foregroundColor(Color("TextColor"))
         .frame(height: 100)
         .background(Color("BackgroundCell").cornerRadius(25))
     }
