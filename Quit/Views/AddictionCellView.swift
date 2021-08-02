@@ -42,7 +42,7 @@ struct AddictionCellView: View {
         }
         .foregroundColor(Color("TextColor"))
         .frame(height: 100)
-        .background(Color("BackgroundCell").cornerRadius(25))
+        .background(Color("BackgroundCell").cornerRadius(StaticViewProperties.cornerRadius))
     }
 }
 

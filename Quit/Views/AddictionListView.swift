@@ -47,10 +47,10 @@ struct AddictionListView: View {
                                     .foregroundColor(Color("TextColor"))
                             })
                             .frame(minWidth: 30, idealWidth: 50, maxWidth: 80, minHeight: 30, idealHeight: 50, maxHeight: 80, alignment: .center)
-                            .background(Color("BackgroundMain"))
+                            .background(Color("SaveDarkColor"))
                             .clipShape(Circle())
                             .overlay(Circle()
-                                        .stroke()
+                                        .stroke(lineWidth: 0.5)
                                         .foregroundColor(Color("DetailGrey")))
                             .padding(25)
                             

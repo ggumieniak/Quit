@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		501DB39C26B81AB500DB3845 /* StaticViewProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501DB39B26B81AB500DB3845 /* StaticViewProperties.swift */; };
 		503D1878261E0D0800239E43 /* QuitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1877261E0D0800239E43 /* QuitTests.swift */; };
 		503D1882261E0D4300239E43 /* AddictionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1881261E0D4300239E43 /* AddictionCellView.swift */; };
 		503D188A261E190600239E43 /* AddictionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1889261E190600239E43 /* AddictionCellViewModel.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		501DB39B26B81AB500DB3845 /* StaticViewProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticViewProperties.swift; sourceTree = "<group>"; };
 		503D1875261E0D0700239E43 /* QuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		503D1877261E0D0800239E43 /* QuitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitTests.swift; sourceTree = "<group>"; };
 		503D1879261E0D0800239E43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		501EE7AA263AA6E800F7ECAB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				501DB39B26B81AB500DB3845 /* StaticViewProperties.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				503D188A261E190600239E43 /* AddictionCellViewModel.swift in Sources */,
 				5072EFF226B1B95400AFB44E /* Date+toString.swift in Sources */,
 				503D1894261E21F600239E43 /* AddictionListViewModel.swift in Sources */,
+				501DB39C26B81AB500DB3845 /* StaticViewProperties.swift in Sources */,
 				50BE16C924EACB970093B38F /* AppDelegate.swift in Sources */,
 				50BE16CB24EACB970093B38F /* SceneDelegate.swift in Sources */,
 				50BE16CD24EACB970093B38F /* AddictionListView.swift in Sources */,
