@@ -10,8 +10,8 @@ import Foundation
 import SwiftUI
 
 class AddictionListViewModel: ObservableObject {
-    @Published var addictions = [Addiction]()
-    @Published var showView: Addiction?
+    @Published var addictions = [Quit]()
+    @Published var showView: Quit?
     @Published var isShow: Bool = false
     
     
@@ -20,6 +20,6 @@ class AddictionListViewModel: ObservableObject {
     }
     
     func fetchData() {
-        addictions = Addiction.exampleArray
+        addictions = Quit.exampleArray
     }
 }

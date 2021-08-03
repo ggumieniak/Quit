@@ -48,14 +48,14 @@ struct AddictionCellView: View {
 
 struct AddictionCellView_Previews: PreviewProvider {
     static var previews: some View {
-        AddictionCellView(addiction: Addiction.example)
+        AddictionCellView(addiction: Quit.example)
     }
 }
 
 
 //MARK: - AddictionCellView init
 extension AddictionCellView {
-    init(addiction: Addiction) {
+    init(addiction: Quit) {
         self.viewModel = AddictionCellViewModel(addiction)
     }
 }

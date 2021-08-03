@@ -10,6 +10,7 @@ import SwiftUI
 
 struct AddNewAddictionView: View {
     @Environment (\.presentationMode) var presentationMode
+    @Environment (\.colorScheme) var colorScheme
     @State var title = ""
     @State var description = ""
     @State var date = Date()
@@ -18,8 +19,7 @@ struct AddNewAddictionView: View {
     init() {
         UITextField.appearance().backgroundColor = UIColor(named: "BackgroundCell")
         UITextView.appearance().backgroundColor = UIColor(named: "BackgroundCell")
-        UIDatePicker.appearance().tintColor = UIColor(named: "TextColor")
-        UIDatePicker.appearance().backgroundColor = UIColor(named: "BackgroundCell")
+        UIDatePicker.appearance().tintColor = UIColor(named: "DatePickerText")
     }
     
     var body: some View {
@@ -44,9 +44,10 @@ struct AddNewAddictionView: View {
                         Text("Start Date")
                             .bold()
 //                            .font(.title3)
-                        DatePicker("", selection: $date, displayedComponents: [.date] )
-                            .datePickerStyle(DefaultDatePickerStyle())
+                        DatePicker("", selection: $date, displayedComponents: [.date,.hourAndMinute] )
+                            .datePickerStyle(CompactDatePickerStyle())
                             .labelsHidden()
+//                        DatePickerCustom(date: $date).frame(height: 50)
                     }
                     VStack(alignment: .leading) {
                         Text("Money per day")

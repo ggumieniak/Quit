@@ -10,9 +10,9 @@ import Foundation
 
 class AddictionCellViewModel: ObservableObject {
     
-    @Published var addiction: Addiction
+    @Published var addiction: Quit
     
-    init(_ addiction: Addiction) {
+    init(_ addiction: Quit) {
         self.addiction = addiction
     }
     
