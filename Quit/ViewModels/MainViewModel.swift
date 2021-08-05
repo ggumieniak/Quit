@@ -15,7 +15,11 @@ class MainViewModel: ObservableObject {
     @Published var isShow: Bool = false
     
     
-    func removeAddiction(at offset: IndexSet) {
+    func addQuit(_ quit: Quit) {
+        quits.append(quit)
+    }
+    
+    func removeQuit(at offset: IndexSet) {
         quits.remove(atOffsets: offset)
     }
     

@@ -22,7 +22,7 @@ struct MainView: View {
                     .ignoresSafeArea(edges: .all)
                 List {
                     ForEach(viewModel.quits, id: \.id) { addiction in
-                        AddictionCellView(addiction: addiction)
+                        CellView(addiction: addiction)
                             .listRowBackground(Color("BackgroundMain"))
                             .onTapGesture {
                                 viewModel.isShow = true
@@ -34,13 +34,13 @@ struct MainView: View {
                     })
                 }
                 .listStyle(PlainListStyle())
-                NavigationLink("", destination: AddictionDetailView(detail: viewModel.detailedQuit?.name ?? "Invalid Request"), isActive: $viewModel.isShow)
+                NavigationLink("", destination: DetailView(detail: viewModel.detailedQuit?.name ?? "Invalid Request"), isActive: $viewModel.isShow)
                 VStack {
                     Spacer()
                     HStack {
                         Spacer()
                         NavigationLink(
-                            destination: AddNewAddictionView(),
+                            destination: AddView(),
                             label: {
                                 Image(systemName: "plus")
                                     .font(.title)

@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct AddictionCellView: View {
+struct CellView: View {
     @ObservedObject var viewModel: CellViewModel
     
     var body: some View {
@@ -48,13 +48,13 @@ struct AddictionCellView: View {
 
 struct AddictionCellView_Previews: PreviewProvider {
     static var previews: some View {
-        AddictionCellView(addiction: Quit.example)
+        CellView(addiction: Quit.example)
     }
 }
 
 
 //MARK: - AddictionCellView init
-extension AddictionCellView {
+extension CellView {
     init(addiction: Quit) {
         self.viewModel = CellViewModel(addiction)
     }

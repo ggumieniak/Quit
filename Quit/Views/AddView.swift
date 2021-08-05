@@ -8,18 +8,17 @@
 
 import SwiftUI
 
-struct AddNewAddictionView: View {
+struct AddView: View {
     @Environment (\.presentationMode) var presentationMode
     @Environment (\.colorScheme) var colorScheme
-    @State var title = ""
-    @State var description = ""
-    @State var date = Date()
-    @State var ammount = ""
+    
+    @ObservedObject var viewModel: AddViewModel
     
     init() {
         UITextField.appearance().backgroundColor = UIColor(named: "BackgroundCell")
         UITextView.appearance().backgroundColor = UIColor(named: "BackgroundCell")
         UIDatePicker.appearance().tintColor = UIColor(named: "DatePickerText")
+        self.viewModel = AddViewModel()
     }
     
     var body: some View {
@@ -28,11 +27,11 @@ struct AddNewAddictionView: View {
             VStack(alignment: .leading) {
                 Text("Name")
                     .bold()
-                TextField("",text: $title)
+                TextField("",text: $viewModel.title)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Text("Description")
                     .bold()
-                TextEditor(text: $description)
+                TextEditor(text: $viewModel.description)
                     .frame(maxHeight: 200)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .border(Color.init(.separator))
@@ -41,13 +40,13 @@ struct AddNewAddictionView: View {
                     VStack(alignment: .leading) {
                         Text("Start Date")
                             .bold()
-                        DatePicker("", selection: $date, displayedComponents: [.date,.hourAndMinute] )
+                        DatePicker("", selection: $viewModel.date, displayedComponents: [.date,.hourAndMinute] )
                             .datePickerStyle(CompactDatePickerStyle())
                             .labelsHidden()
                     }
                     VStack(alignment: .leading) {
                         Text("Money per day").bold().lineLimit(1).scaledToFill()
-                        TextField("",text:$ammount)
+                        TextField("",text: $viewModel.ammount)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .keyboardType(.decimalPad)
                     }
@@ -76,8 +75,9 @@ struct AddNewAddictionView: View {
     }
 }
 
+
 struct AddNewAddictionView_Previews: PreviewProvider {
     static var previews: some View {
-        AddNewAddictionView()
+        AddView()
     }
 }

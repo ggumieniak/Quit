@@ -9,5 +9,8 @@
 import Foundation
 
 class AddViewModel: ObservableObject {
-    
+    @Published var title = ""
+    @Published var description = ""
+    @Published var date = Date()
+    @Published var ammount = ""
 }

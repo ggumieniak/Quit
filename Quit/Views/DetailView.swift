@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct AddictionDetailView: View {
+struct DetailView: View {
     @State var detail: String
     
     var body: some View {
@@ -22,6 +22,6 @@ struct AddictionDetailView: View {
 
 struct AddictionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AddictionDetailView(detail: "Test")
+        DetailView(detail: "Test")
     }
 }
