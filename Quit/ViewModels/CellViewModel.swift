@@ -1,5 +1,5 @@
 //
-//  AddictionCellViewModel.swift
+//  CellViewModel.swift
 //  Quit
 //
 //  Created by Grzegorz Gumieniak on 07/04/2021.
@@ -8,16 +8,16 @@
 
 import Foundation
 
-class AddictionCellViewModel: ObservableObject {
+class CellViewModel: ObservableObject {
     
-    @Published var addiction: Quit
+    @Published var quit: Quit
     
     init(_ addiction: Quit) {
-        self.addiction = addiction
+        self.quit = addiction
     }
     
     func getCurrentData() -> String {
-        let date = addiction.dateStart
+        let date = quit.dateStart
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         return dateFormatter.string(from: date)

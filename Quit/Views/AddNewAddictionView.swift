@@ -28,12 +28,10 @@ struct AddNewAddictionView: View {
             VStack(alignment: .leading) {
                 Text("Name")
                     .bold()
-//                    .font(.title3)
                 TextField("",text: $title)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Text("Description")
                     .bold()
-//                    .font(.title3)
                 TextEditor(text: $description)
                     .frame(maxHeight: 200)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -43,16 +41,12 @@ struct AddNewAddictionView: View {
                     VStack(alignment: .leading) {
                         Text("Start Date")
                             .bold()
-//                            .font(.title3)
                         DatePicker("", selection: $date, displayedComponents: [.date,.hourAndMinute] )
                             .datePickerStyle(CompactDatePickerStyle())
                             .labelsHidden()
-//                        DatePickerCustom(date: $date).frame(height: 50)
                     }
                     VStack(alignment: .leading) {
-                        Text("Money per day")
-                            .bold()
-//                            .font(.title3)
+                        Text("Money per day").bold().lineLimit(1).scaledToFill()
                         TextField("",text:$ammount)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .keyboardType(.decimalPad)

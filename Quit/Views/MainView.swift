@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-struct AddictionListView: View {
-    @StateObject private var addictionListVM: AddictionListViewModel = AddictionListViewModel()
+struct MainView: View {
+    @StateObject private var viewModel = MainViewModel()
     @State private var showAlert: Bool = false
     
     init() {
@@ -21,12 +21,12 @@ struct AddictionListView: View {
                 Color("BackgroundMain")
                     .ignoresSafeArea(edges: .all)
                 List {
-                    ForEach(addictionListVM.addictions, id: \.id) { addiction in
+                    ForEach(viewModel.quits, id: \.id) { addiction in
                         AddictionCellView(addiction: addiction)
                             .listRowBackground(Color("BackgroundMain"))
                             .onTapGesture {
-                                addictionListVM.isShow = true
-                                addictionListVM.showView = addiction
+                                viewModel.isShow = true
+                                viewModel.detailedQuit = addiction
                             }
                     }
                     .onDelete(perform: { indexSet in
@@ -34,7 +34,7 @@ struct AddictionListView: View {
                     })
                 }
                 .listStyle(PlainListStyle())
-                NavigationLink("", destination: AddictionDetailView(detail: addictionListVM.showView?.name ?? "Invalid Request"), isActive: $addictionListVM.isShow)
+                NavigationLink("", destination: AddictionDetailView(detail: viewModel.detailedQuit?.name ?? "Invalid Request"), isActive: $viewModel.isShow)
                 VStack {
                     Spacer()
                     HStack {
@@ -59,13 +59,13 @@ struct AddictionListView: View {
             }
             .navigationBarHidden(true)
         }
-        .onAppear(perform: addictionListVM.fetchData)
+        .onAppear(perform: viewModel.fetchData)
     }
 }
 
 
 struct AddictionListView_Previews: PreviewProvider {
     static var previews: some View {
-        AddictionListView()
+        MainView()
     }
 }

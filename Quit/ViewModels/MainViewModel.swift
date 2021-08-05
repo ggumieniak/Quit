@@ -1,5 +1,5 @@
 //
-//  AddictionListViewModel.swift
+//  MainViewModel.swift
 //  Quit
 //
 //  Created by Grzegorz Gumieniak on 07/04/2021.
@@ -9,17 +9,17 @@
 import Foundation
 import SwiftUI
 
-class AddictionListViewModel: ObservableObject {
-    @Published var addictions = [Quit]()
-    @Published var showView: Quit?
+class MainViewModel: ObservableObject {
+    @Published var quits = [Quit]()
+    @Published var detailedQuit: Quit?
     @Published var isShow: Bool = false
     
     
     func removeAddiction(at offset: IndexSet) {
-        addictions.remove(atOffsets: offset)
+        quits.remove(atOffsets: offset)
     }
     
     func fetchData() {
-        addictions = Quit.exampleArray
+        quits = Quit.exampleArray
     }
 }

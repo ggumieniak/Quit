@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 struct AddictionCellView: View {
-    @ObservedObject var viewModel: AddictionCellViewModel
+    @ObservedObject var viewModel: CellViewModel
     
     var body: some View {
         GeometryReader { geometry in
@@ -18,7 +18,7 @@ struct AddictionCellView: View {
                 Circle()
                     .foregroundColor(Color("BackgroundCellLighter"))
                     .frame(width: geometry.size.width * 0.2)
-                    .overlay(Text("\(viewModel.addiction.duration)")
+                    .overlay(Text("\(viewModel.quit.duration)")
                                 .font(.title3)
                                 .bold()
                                 .aspectRatio(1,contentMode: .fit)
@@ -27,10 +27,10 @@ struct AddictionCellView: View {
                                 .stroke(lineWidth: 3)
                                 .foregroundColor(Color("BackgroundMain")))
                 VStack(alignment: .leading) {
-                    Text(viewModel.addiction.name)
+                    Text(viewModel.quit.name)
                         .lineLimit(1)
                         .font(.title)
-                    Text(viewModel.addiction.dateStart.toString())
+                    Text(viewModel.quit.dateStart.toString())
                         .font(.footnote)
                         .bold()
                     	Text("you saved now")
@@ -56,6 +56,6 @@ struct AddictionCellView_Previews: PreviewProvider {
 //MARK: - AddictionCellView init
 extension AddictionCellView {
     init(addiction: Quit) {
-        self.viewModel = AddictionCellViewModel(addiction)
+        self.viewModel = CellViewModel(addiction)
     }
 }
