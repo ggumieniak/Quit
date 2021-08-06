@@ -14,11 +14,11 @@ struct AddView: View {
     
     @ObservedObject var viewModel: AddViewModel
     
-    init() {
+    init(at addQuit: @escaping (Quit)->()) {
         UITextField.appearance().backgroundColor = UIColor(named: "BackgroundCell")
         UITextView.appearance().backgroundColor = UIColor(named: "BackgroundCell")
         UIDatePicker.appearance().tintColor = UIColor(named: "DatePickerText")
-        self.viewModel = AddViewModel()
+        self.viewModel = AddViewModel(at: addQuit)
     }
     
     var body: some View {
@@ -53,6 +53,7 @@ struct AddView: View {
                 }
                 Spacer()
                 Button(action: {
+                    self.viewModel.addQuit()
                     presentationMode.wrappedValue.dismiss()
                     
                 }, label: {
@@ -75,9 +76,9 @@ struct AddView: View {
     }
 }
 
-
-struct AddNewAddictionView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddView()
-    }
-}
+//
+//struct AddNewAddictionView_Previews: PreviewProvider {
+//    static var previews: some View {
+////        AddView(at: <#T##(Quit) -> ()#>)
+//    }
+//}
