@@ -15,7 +15,7 @@ struct AddView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            Color("BackgroundMain").ignoresSafeArea(.all)
+            StaticViewProperties.SwiftUIColor.BackgroundMain.ignoresSafeArea(.all)
             VStack(alignment: .leading) {
                 Text("Name")
                     .bold()
@@ -54,17 +54,17 @@ struct AddView: View {
                         .frame(height: 50)
                         .frame(maxWidth: .infinity)
                 })
-                .background(Color("SaveDarkColor"))
+                .background(StaticViewProperties.SwiftUIColor.SaveDarkColor)
                 .overlay(RoundedRectangle(cornerRadius: StaticViewProperties.cornerRadius)
                             .stroke(lineWidth: 1)
-                            .foregroundColor(Color("DetailGrey")))
+                            .foregroundColor(StaticViewProperties.SwiftUIColor.DetailGrey))
                 .cornerRadius(StaticViewProperties.cornerRadius)
             }
             .padding()
         }
         .font(.title3)
-        .foregroundColor(Color("TextColor"))
-        .background(Color("BackgroundMain"))
+        .foregroundColor(StaticViewProperties.SwiftUIColor.TextColor)
+        .background(StaticViewProperties.SwiftUIColor.BackgroundMain)
         .navigationBarTitle("",displayMode: .inline)
     }
 }

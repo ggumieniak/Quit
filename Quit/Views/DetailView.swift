@@ -10,12 +10,13 @@ import SwiftUI
 
 struct DetailView: View {
     @State var detail: String
+    @State var quit: Quit = Quit.example
     
     var body: some View {
         ZStack {
-            Color("BackgroundCell").ignoresSafeArea(.all)
+            StaticViewProperties.SwiftUIColor.BackgroundMain.ignoresSafeArea(.all)
             Text("\(detail)")
-        }
+        }.foregroundColor(StaticViewProperties.SwiftUIColor.TextColor)
     }
 }
 

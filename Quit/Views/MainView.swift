@@ -16,7 +16,6 @@ struct MainView: View {
         NavigationView {
             ZStack {
                 StaticViewProperties.SwiftUIColor.BackgroundMain
-                    .ignoresSafeArea(edges: .all)
                 List {
                     ForEach(viewModel.quits, id: \.id) { addiction in
                         CellView(addiction: addiction)
