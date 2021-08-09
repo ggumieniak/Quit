@@ -18,11 +18,12 @@ struct AddView: View {
         UITextField.appearance().backgroundColor = UIColor(named: "BackgroundCell")
         UITextView.appearance().backgroundColor = UIColor(named: "BackgroundCell")
         UIDatePicker.appearance().tintColor = UIColor(named: "DatePickerText")
+        UINavigationBar.appearance().tintColor = UIColor(named: "TextColor")
         self.viewModel = AddViewModel(at: addQuit)
     }
     
     var body: some View {
-        ZStack(alignment: .top){
+        ZStack(alignment: .top) {
             Color("BackgroundMain").ignoresSafeArea(.all)
             VStack(alignment: .leading) {
                 Text("Name")

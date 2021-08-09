@@ -13,17 +13,17 @@ struct MainView: View {
     @State private var showAlert: Bool = false
     
     init() {
-        UITableView.appearance().backgroundColor = UIColor(named: "BackgroundMain")
+        UITableView.appearance().backgroundColor = StaticViewProperties.UIColors.BackgroundMain
     }
     var body: some View {
         NavigationView {
             ZStack {
-                Color("BackgroundMain")
+                StaticViewProperties.SwiftUIColor.BackgroundMain
                     .ignoresSafeArea(edges: .all)
                 List {
                     ForEach(viewModel.quits, id: \.id) { addiction in
                         CellView(addiction: addiction)
-                            .listRowBackground(Color("BackgroundMain"))
+                            .listRowBackground(StaticViewProperties.SwiftUIColor.BackgroundMain)
                             .onTapGesture {
                                 viewModel.isShow = true
                                 viewModel.detailedQuit = addiction
@@ -44,14 +44,14 @@ struct MainView: View {
                             label: {
                                 Image(systemName: "plus")
                                     .font(.title)
-                                    .foregroundColor(Color("TextColor"))
+                                    .foregroundColor(StaticViewProperties.SwiftUIColor.TextColor)
                             })
                             .frame(minWidth: 30, idealWidth: 50, maxWidth: 80, minHeight: 30, idealHeight: 50, maxHeight: 80, alignment: .center)
-                            .background(Color("SaveDarkColor"))
+                            .background(StaticViewProperties.SwiftUIColor.SaveDarkColor)
                             .clipShape(Circle())
                             .overlay(Circle()
                                         .stroke(lineWidth: 0.5)
-                                        .foregroundColor(Color("DetailGrey")))
+                                        .foregroundColor(StaticViewProperties.SwiftUIColor.DetailGrey))
                             .padding(25)
                             
                     }

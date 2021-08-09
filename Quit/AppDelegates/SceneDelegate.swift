@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let contentView = MainView()
-        UITableView.appearance().tintColor = UIColor(named: "BackgroundMain")
+        UITableView.appearance().tintColor = StaticViewProperties.UIColors.BackgroundMain
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
