@@ -11,16 +11,7 @@ import SwiftUI
 struct AddView: View {
     @Environment (\.presentationMode) var presentationMode
     @Environment (\.colorScheme) var colorScheme
-    
     @ObservedObject var viewModel: AddViewModel
-    
-    init(at addQuit: @escaping (Quit)->()) {
-        UITextField.appearance().backgroundColor = UIColor(named: "BackgroundCell")
-        UITextView.appearance().backgroundColor = UIColor(named: "BackgroundCell")
-        UIDatePicker.appearance().tintColor = UIColor(named: "DatePickerText")
-        UINavigationBar.appearance().tintColor = UIColor(named: "TextColor")
-        self.viewModel = AddViewModel(at: addQuit)
-    }
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -74,8 +65,16 @@ struct AddView: View {
         .font(.title3)
         .foregroundColor(Color("TextColor"))
         .background(Color("BackgroundMain"))
+        .navigationBarTitle("",displayMode: .inline)
     }
 }
+
+extension AddView {
+    init(at addQuit: @escaping (Quit)->()) {
+        self.viewModel = AddViewModel(at: addQuit)
+    }
+}
+
 
 //
 //struct AddNewAddictionView_Previews: PreviewProvider {

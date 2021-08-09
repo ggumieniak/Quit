@@ -12,9 +12,6 @@ struct MainView: View {
     @StateObject private var viewModel = MainViewModel()
     @State private var showAlert: Bool = false
     
-    init() {
-        UITableView.appearance().backgroundColor = StaticViewProperties.UIColors.BackgroundMain
-    }
     var body: some View {
         NavigationView {
             ZStack {
