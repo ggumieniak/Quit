@@ -10,7 +10,6 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var viewModel = MainViewModel()
-    @State private var showAlert: Bool = false
     
     var body: some View {
         NavigationView {
@@ -30,7 +29,7 @@ struct MainView: View {
                     })
                 }
                 .listStyle(PlainListStyle())
-                NavigationLink("", destination: DetailView(detail: viewModel.detailedQuit?.name ?? "Invalid Request"), isActive: $viewModel.isShow)
+                NavigationLink("", destination: DetailView(detail: viewModel.detailedQuit ?? Quit.example), isActive: $viewModel.isShow)
                 VStack {
                     Spacer()
                     HStack {

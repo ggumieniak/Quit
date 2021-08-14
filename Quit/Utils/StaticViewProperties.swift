@@ -34,4 +34,5 @@ struct StaticViewProperties {
         static let SaveDarkColor = Color("SaveDarkColor")
         static let TextColor = Color("TextColor")
     }
+    
 }

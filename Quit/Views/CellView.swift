@@ -16,7 +16,7 @@ struct CellView: View {
         GeometryReader { geometry in
             HStack {
                 Circle()
-                    .foregroundColor(Color("BackgroundCellLighter"))
+                    .foregroundColor(StaticViewProperties.SwiftUIColor.BackgroundCellLighter)
                     .frame(width: geometry.size.width * 0.2)
                     .overlay(Text("\(viewModel.quit.duration)")
                                 .font(.title3)
@@ -25,7 +25,7 @@ struct CellView: View {
                                 .lineLimit(2))
                     .overlay(Circle()
                                 .stroke(lineWidth: 3)
-                                .foregroundColor(Color("BackgroundMain")))
+                                .foregroundColor(StaticViewProperties.SwiftUIColor.BackgroundMain))
                 VStack(alignment: .leading) {
                     Text(viewModel.quit.name)
                         .lineLimit(1)
@@ -35,14 +35,14 @@ struct CellView: View {
                         .bold()
                     	Text("you saved now")
                         .font(.footnote)
-                        .foregroundColor(Color("Citrine"))
+                        .foregroundColor(StaticViewProperties.SwiftUIColor.Citrine)
                 }
             }
             .padding()
         }
-        .foregroundColor(Color("TextColor"))
+        .foregroundColor(StaticViewProperties.SwiftUIColor.TextColor)
         .frame(height: 100)
-        .background(Color("BackgroundCell").cornerRadius(StaticViewProperties.cornerRadius))
+        .background(StaticViewProperties.SwiftUIColor.BackgroundCell.cornerRadius(StaticViewProperties.cornerRadius))
     }
 }
 

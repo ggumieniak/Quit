@@ -65,7 +65,7 @@ struct AddView: View {
         .font(.title3)
         .foregroundColor(StaticViewProperties.SwiftUIColor.TextColor)
         .background(StaticViewProperties.SwiftUIColor.BackgroundMain)
-        .navigationBarTitle("",displayMode: .inline)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -75,10 +75,10 @@ extension AddView {
     }
 }
 
-
-//
-//struct AddNewAddictionView_Previews: PreviewProvider {
-//    static var previews: some View {
-////        AddView(at: <#T##(Quit) -> ()#>)
-//    }
-//}
+struct AddView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddView(at: addMock(AddView_Previews()))
+    }
+    
+    func addMock(quit: Quit){}
+}
