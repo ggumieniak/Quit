@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 class MainViewModel: ObservableObject {
-    @Published var quits = [Quit]()
+    @Published var quits: [Quit] = []
     @Published var detailedQuit: Quit?
     @Published var isShow: Bool = false
     
