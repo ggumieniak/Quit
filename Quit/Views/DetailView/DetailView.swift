@@ -17,18 +17,27 @@ struct DetailView: View {
             StaticViewProperties.SwiftUIColor.BackgroundMain
                 .ignoresSafeArea(.all)
             VStack {
+            VStack {
                 QuitText(text: detail.name, font: .largeTitle)
                 QuitText(text: detail.description)
                 Spacer()
-                Button(action: {isEdit.toggle()}){
-                    Text("Edit")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: StaticViewProperties.cornerRadius).foregroundColor(StaticViewProperties.SwiftUIColor.SaveDarkColor))
-                }
-            }.padding()
+            }
+            .padding()
             .background(RoundedRectangle(cornerRadius: StaticViewProperties.cornerRadius)
                             .foregroundColor(StaticViewProperties.SwiftUIColor.BackgroundCell).padding())
+                Spacer()
+                Button(action: { isEdit.toggle()}, label: {
+                    Text("Edit")
+                        .bold()
+                        .frame(height: 50)
+                        .frame(maxWidth: .infinity)
+                })
+                .background(StaticViewProperties.SwiftUIColor.SaveDarkColor)
+                .overlay(RoundedRectangle(cornerRadius: StaticViewProperties.cornerRadius)
+                            .stroke(lineWidth: 1)
+                            .foregroundColor(StaticViewProperties.SwiftUIColor.DetailGrey))
+                .cornerRadius(StaticViewProperties.cornerRadius).padding()
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
         .foregroundColor(StaticViewProperties.SwiftUIColor.TextColor)

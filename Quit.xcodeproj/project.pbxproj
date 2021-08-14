@@ -104,22 +104,47 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		503D1888261E18F700239E43 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				503D1889261E190600239E43 /* CellViewModel.swift */,
-				503D1893261E21F600239E43 /* MainViewModel.swift */,
-				508DD06426BC3C2900784B4D /* AddViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		5072EFF026B1B5E600AFB44E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				5072EFF126B1B95400AFB44E /* Date+toString.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		509DA6C526C8004D0095CE96 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				50BE16CC24EACB970093B38F /* MainView.swift */,
+				503D1893261E21F600239E43 /* MainViewModel.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		509DA6C626C800580095CE96 /* CellView */ = {
+			isa = PBXGroup;
+			children = (
+				503D1881261E0D4300239E43 /* CellView.swift */,
+				503D1889261E190600239E43 /* CellViewModel.swift */,
+			);
+			path = CellView;
+			sourceTree = "<group>";
+		};
+		509DA6C726C8005E0095CE96 /* AddVuew */ = {
+			isa = PBXGroup;
+			children = (
+				50A9536F26297347006BA74B /* AddView.swift */,
+				508DD06426BC3C2900784B4D /* AddViewModel.swift */,
+			);
+			path = AddVuew;
+			sourceTree = "<group>";
+		};
+		509DA6C826C8006C0095CE96 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				509A6DFA263C02CA00B80217 /* DetailView.swift */,
+			);
+			path = DetailView;
 			sourceTree = "<group>";
 		};
 		50BE16BC24EACB970093B38F = {
@@ -147,7 +172,6 @@
 			children = (
 				5072EFF026B1B5E600AFB44E /* Extensions */,
 				501EE7AA263AA6E800F7ECAB /* Utils */,
-				503D1888261E18F700239E43 /* ViewModels */,
 				503D1885261E0F6B00239E43 /* Models */,
 				50BE16DD24EACC2C0093B38F /* AppDelegates */,
 				50BE16DE24EACC340093B38F /* Views */,
@@ -179,10 +203,10 @@
 		50BE16DE24EACC340093B38F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				50BE16CC24EACB970093B38F /* MainView.swift */,
-				503D1881261E0D4300239E43 /* CellView.swift */,
-				50A9536F26297347006BA74B /* AddView.swift */,
-				509A6DFA263C02CA00B80217 /* DetailView.swift */,
+				509DA6C526C8004D0095CE96 /* MainView */,
+				509DA6C626C800580095CE96 /* CellView */,
+				509DA6C726C8005E0095CE96 /* AddVuew */,
+				509DA6C826C8006C0095CE96 /* DetailView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
