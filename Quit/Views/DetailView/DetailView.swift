@@ -17,14 +17,14 @@ struct DetailView: View {
             StaticViewProperties.SwiftUIColor.BackgroundMain
                 .ignoresSafeArea(.all)
             VStack {
-            VStack {
-                QuitText(text: detail.name, font: .largeTitle)
-                QuitText(text: detail.description)
-                Spacer()
-            }
-            .padding()
-            .background(RoundedRectangle(cornerRadius: StaticViewProperties.cornerRadius)
-                            .foregroundColor(StaticViewProperties.SwiftUIColor.BackgroundCell).padding())
+                VStack {
+                    QuitText(text: detail.name, font: .largeTitle)
+                    QuitText(text: detail.description)
+                    Spacer()
+                }
+                .padding()
+                .background(RoundedRectangle(cornerRadius: StaticViewProperties.cornerRadius)
+                                .foregroundColor(StaticViewProperties.SwiftUIColor.BackgroundCell).padding())
                 Spacer()
                 Button(action: { isEdit.toggle()}, label: {
                     Text("Edit")
@@ -38,7 +38,9 @@ struct DetailView: View {
                             .foregroundColor(StaticViewProperties.SwiftUIColor.DetailGrey))
                 .cornerRadius(StaticViewProperties.cornerRadius).padding()
             }
-        }
+        }.sheet(isPresented: isEdit, content: {
+            AddView(
+        })
         .navigationBarTitleDisplayMode(.inline)
         .foregroundColor(StaticViewProperties.SwiftUIColor.TextColor)
     }

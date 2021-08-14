@@ -130,13 +130,13 @@
 			path = CellView;
 			sourceTree = "<group>";
 		};
-		509DA6C726C8005E0095CE96 /* AddVuew */ = {
+		509DA6C726C8005E0095CE96 /* AddView */ = {
 			isa = PBXGroup;
 			children = (
 				50A9536F26297347006BA74B /* AddView.swift */,
 				508DD06426BC3C2900784B4D /* AddViewModel.swift */,
 			);
-			path = AddVuew;
+			path = AddView;
 			sourceTree = "<group>";
 		};
 		509DA6C826C8006C0095CE96 /* DetailView */ = {
@@ -205,7 +205,7 @@
 			children = (
 				509DA6C526C8004D0095CE96 /* MainView */,
 				509DA6C626C800580095CE96 /* CellView */,
-				509DA6C726C8005E0095CE96 /* AddVuew */,
+				509DA6C726C8005E0095CE96 /* AddView */,
 				509DA6C826C8006C0095CE96 /* DetailView */,
 			);
 			path = Views;
