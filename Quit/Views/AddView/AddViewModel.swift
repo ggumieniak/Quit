@@ -21,7 +21,7 @@ class AddViewModel: ObservableObject {
     }
     
     func addQuit() {
-        let quit = Quit(id: 0, name: title, description: description, dateStart: date)
+        let quit = Quit(id: 0, name: title, description: description, dateStart: date,ammount: Decimal(string: ammount)!)
         addNewQuit(quit)
         clearInput()
     }

@@ -19,6 +19,9 @@ struct DetailView: View {
             VStack {
                 VStack {
                     QuitText(text: detail.name, font: .largeTitle)
+                    HStack {
+                        QuitText(text: "You already saved: \(detail.duration)")
+                    }
                     QuitText(text: detail.description)
                     Spacer()
                 }
@@ -38,9 +41,10 @@ struct DetailView: View {
                             .foregroundColor(StaticViewProperties.SwiftUIColor.DetailGrey))
                 .cornerRadius(StaticViewProperties.cornerRadius).padding()
             }
-        }.sheet(isPresented: isEdit, content: {
-            AddView(
-        })
+        }
+//        }.sheet(isPresented: isEdit, content: {
+//            AddView(
+//        })
         .navigationBarTitleDisplayMode(.inline)
         .foregroundColor(StaticViewProperties.SwiftUIColor.TextColor)
     }
