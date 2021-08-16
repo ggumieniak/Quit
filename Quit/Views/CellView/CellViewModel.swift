@@ -10,16 +10,19 @@ import Foundation
 
 class CellViewModel: ObservableObject {
     
-    @Published var quit: Quit
+    private let quit: Quit
+    @Published var ammount: String
+    @Published var date: String
+    @Published var description: String
+    @Published var name: String
+    @Published var duration: String
     
     init(_ addiction: Quit) {
         self.quit = addiction
-    }
-    
-    func getCurrentData() -> String {
-        let date = quit.dateStart
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        return dateFormatter.string(from: date)
+        self.ammount = String(format: "%.2f", quit.ammount * quit.duration)
+        self.description = quit.description
+        self.name = quit.name
+        self.date = quit.dateStart.toString()
+        self.duration = String(format: "%.2f", quit.duration)
     }
 }
