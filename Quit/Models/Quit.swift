@@ -23,7 +23,6 @@ struct Quit: QuitType {
     var duration: Double {
         let now = Date()
         let duration =  (now.timeIntervalSince1970 - dateStart.timeIntervalSince1970)/60/60/24
-        print(duration)
         return duration
     }
     var description: String
@@ -50,7 +49,7 @@ extension Quit {
         return addictions
     }
     static var example: Quit {
-        let yesterday = Calendar.current.date(byAdding: .day,value: -1, to: Date())!
-        return Quit(id: UUID.init(),name: "Woda", description: "Wodnista woda nie bede jej nigdy pil", dateStart: yesterday + 2, ammount: 7012.42)
+        let yesterday = Calendar.current.date(byAdding: .month,value: -1, to: Date())!
+        return Quit(id: UUID.init(),name: "Woda", description: "Wodnista woda nie bede jej nigdy pil", dateStart: yesterday, ammount: 7012.42)
     }
 }
