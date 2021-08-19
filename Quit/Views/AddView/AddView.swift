@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct AddView: View {
-    @Environment (\.presentationMode) var presentationMode
-    @Environment (\.colorScheme) var colorScheme
     @ObservedObject var viewModel: AddViewModel
     
     var body: some View {
@@ -44,21 +42,7 @@ struct AddView: View {
                     }
                 }
                 Spacer()
-                Button(action: {
-                    self.viewModel.addQuit()
-                    presentationMode.wrappedValue.dismiss()
-                    
-                }, label: {
-                    Text("Save")
-                        .bold()
-                        .frame(height: 50)
-                        .frame(maxWidth: .infinity)
-                })
-                .background(StaticViewProperties.SwiftUIColor.SaveDarkColor)
-                .overlay(RoundedRectangle(cornerRadius: StaticViewProperties.cornerRadius)
-                            .stroke(lineWidth: 1)
-                            .foregroundColor(StaticViewProperties.SwiftUIColor.DetailGrey))
-                .cornerRadius(StaticViewProperties.cornerRadius)
+                DarkThemeButton(text: "Save", operation: self.viewModel.addQuit)
             }
             .padding()
         }

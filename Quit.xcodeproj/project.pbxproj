@@ -24,6 +24,7 @@
 		50BE16CF24EACB980093B38F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50BE16CE24EACB980093B38F /* Assets.xcassets */; };
 		50BE16D224EACB980093B38F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50BE16D124EACB980093B38F /* Preview Assets.xcassets */; };
 		50BE16D524EACB980093B38F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BE16D324EACB980093B38F /* LaunchScreen.storyboard */; };
+		50C7E75F26CE6B5600DDDF97 /* DarkThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7E75E26CE6B5600DDDF97 /* DarkThemeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		50BE16D424EACB980093B38F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50BE16D624EACB980093B38F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50BE16DC24EACBAA0093B38F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		50C7E75E26CE6B5600DDDF97 /* DarkThemeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkThemeButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,12 +205,21 @@
 		50BE16DE24EACC340093B38F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				50C7E75B26CE6B0100DDDF97 /* Components */,
 				509DA6C526C8004D0095CE96 /* MainView */,
 				509DA6C626C800580095CE96 /* CellView */,
 				509DA6C726C8005E0095CE96 /* AddView */,
 				509DA6C826C8006C0095CE96 /* DetailView */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		50C7E75B26CE6B0100DDDF97 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				50C7E75E26CE6B5600DDDF97 /* DarkThemeButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				509A6DFB263C02CA00B80217 /* DetailView.swift in Sources */,
+				50C7E75F26CE6B5600DDDF97 /* DarkThemeButton.swift in Sources */,
 				503D1898261E220C00239E43 /* Quit.swift in Sources */,
 				50A9537026297347006BA74B /* AddView.swift in Sources */,
 				503D1882261E0D4300239E43 /* CellView.swift in Sources */,
