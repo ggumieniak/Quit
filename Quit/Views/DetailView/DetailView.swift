@@ -17,17 +17,7 @@ struct DetailView: View {
             StaticViewProperties.SwiftUIColor.BackgroundMain
                 .ignoresSafeArea(.all)
             if isEdit {
-                Button(action: { isEdit.toggle()}, label: {
-                    Text("Edit")
-                        .bold()
-                        .frame(height: 50)
-                        .frame(maxWidth: .infinity)
-                })
-                .background(StaticViewProperties.SwiftUIColor.SaveDarkColor)
-                .overlay(RoundedRectangle(cornerRadius: StaticViewProperties.cornerRadius)
-                            .stroke(lineWidth: 1)
-                            .foregroundColor(StaticViewProperties.SwiftUIColor.DetailGrey))
-                .cornerRadius(StaticViewProperties.cornerRadius).padding()
+                AddView(quit: $detail)
             } else {
                 VStack {
                     VStack {
@@ -43,17 +33,10 @@ struct DetailView: View {
                     .background(RoundedRectangle(cornerRadius: StaticViewProperties.cornerRadius)
                                     .foregroundColor(StaticViewProperties.SwiftUIColor.BackgroundCell).padding())
                     Spacer()
-                    Button(action: { isEdit.toggle()}, label: {
-                        Text("Edit")
-                            .bold()
-                            .frame(height: 50)
-                            .frame(maxWidth: .infinity)
-                    })
-                    .background(StaticViewProperties.SwiftUIColor.SaveDarkColor)
-                    .overlay(RoundedRectangle(cornerRadius: StaticViewProperties.cornerRadius)
-                                .stroke(lineWidth: 1)
-                                .foregroundColor(StaticViewProperties.SwiftUIColor.DetailGrey))
-                    .cornerRadius(StaticViewProperties.cornerRadius).padding()
+                    DarkThemeButton(text: "Edit") {
+                        isEdit.toggle()
+                    }
+                    .padding()
                 }
             }
         }

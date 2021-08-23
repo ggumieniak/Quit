@@ -35,7 +35,7 @@ struct MainView: View {
                     HStack {
                         Spacer()
                         NavigationLink(
-                            destination: AddView(at: viewModel.addQuit(_:)),
+                            destination: AddView(quit: <#Binding<Quit>#>),
                             label: {
                                 Image(systemName: "plus")
                                     .font(.title)

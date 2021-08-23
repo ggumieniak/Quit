@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct AddView: View {
-    @ObservedObject var viewModel: AddViewModel
+    @Binding var quit: Quit
+    @State var ammount = ""
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -17,11 +18,11 @@ struct AddView: View {
             VStack(alignment: .leading) {
                 Text("Name")
                     .bold()
-                TextField("",text: $viewModel.title)
+                TextField("",text: $quit.name)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Text("Description")
                     .bold()
-                TextEditor(text: $viewModel.description)
+                TextEditor(text: $quit.description)
                     .frame(maxHeight: 200)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .border(Color.init(.separator))
@@ -30,19 +31,19 @@ struct AddView: View {
                     VStack(alignment: .leading) {
                         Text("Start Date")
                             .bold()
-                        DatePicker("", selection: $viewModel.date, displayedComponents: [.date,.hourAndMinute] )
+                        DatePicker("", selection: $quit.dateStart, displayedComponents: [.date,.hourAndMinute] )
                             .datePickerStyle(CompactDatePickerStyle())
                             .labelsHidden()
                     }
                     VStack(alignment: .leading) {
                         Text("Money per day").bold().lineLimit(1).scaledToFill()
-                        TextField("",text: $viewModel.ammount)
+                        TextField("",text: $ammount)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .keyboardType(.decimalPad)
                     }
                 }
                 Spacer()
-                DarkThemeButton(text: "Save", operation: self.viewModel.addQuit)
+                DarkThemeButton(text: "Save", operation: {})
             }
             .padding()
         }
@@ -53,15 +54,10 @@ struct AddView: View {
     }
 }
 
-extension AddView {
-    init(at addQuit: @escaping (Quit)->()) {
-        self.viewModel = AddViewModel(at: addQuit)
-    }
-}
-
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
-        AddView(at: addMock(AddView_Previews()))
+//        AddView(at: addMock(AddView_Previews()))
+        AddView(quit: .constant(Quit.example))
     }
     
     func addMock(quit: Quit){}

@@ -12,13 +12,9 @@ struct DarkThemeButton: View {
     
     @State var text: String
     let operation: () -> ()
-    @Environment (\.presentationMode) var presentationMode
     
     var body: some View {
-        Button(action: {
-            operation()
-            presentationMode.wrappedValue.dismiss()
-        }, label: {
+        Button(action: operation, label: {
             Text(text)
                 .bold()
                 .frame(height: 50)
