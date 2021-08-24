@@ -16,13 +16,13 @@ class CellViewModel: ObservableObject {
     @Published var description: String
     @Published var name: String
     @Published var duration: String
-    
+
     init(_ addiction: Quit) {
         self.quit = addiction
         self.ammount = String(format: "%.2f", quit.ammount * quit.duration)
         self.description = quit.description
         self.name = quit.name
         self.date = quit.dateStart.toString()
-        self.duration = String(format: "%.2f", quit.duration)
+        self.duration = String(format: "%.0f", quit.duration)
     }
 }

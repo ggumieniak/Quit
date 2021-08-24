@@ -13,13 +13,8 @@ struct CellView: View {
     @ObservedObject var viewModel: CellViewModel
     
     var body: some View {
-        GeometryReader { geometry in
             HStack {
-                Text(viewModel.duration)
-                    .font(.title3)
-                    .bold()
-                    .lineLimit(1)
-                    .padding(1)
+                NumberOfQuitDayView(duration: $viewModel.duration)
                 VStack(alignment: .leading) {
                     Text(viewModel.name)
                         .lineLimit(1)
@@ -31,22 +26,31 @@ struct CellView: View {
                         .font(.footnote)
                 }
             }
-            .padding()
-        }
-        .frame(height: 100)
     }
 }
 
 struct AddictionCellView_Previews: PreviewProvider {
     static var previews: some View {
-        CellView(addiction: Quit.example)
+        CellView(quit: Quit.example)
     }
 }
 
 
 //MARK: - AddictionCellView init
 extension CellView {
-    init(addiction: Quit) {
-        self.viewModel = CellViewModel(addiction)
+    init(quit: Quit) {
+        self.viewModel = CellViewModel(quit)
+    }
+}
+
+struct NumberOfQuitDayView: View {
+    @Binding var duration: String
+    var body: some View {
+        HStack {
+            Text(duration)
+                .font(.title3)
+                .frame(width: 50)
+            Divider()
+        }
     }
 }

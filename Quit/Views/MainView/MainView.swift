@@ -13,40 +13,7 @@ struct MainView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                List(viewModel.quits) { addiction in
-                    CellView(addiction: addiction)
-                        .listRowBackground(StaticViewProperties.SwiftUIColor.BackgroundMain)
-                        .onTapGesture {
-                            viewModel.isShow = true
-                            viewModel.detailedQuit = addiction
-                        }
-                }
-                .listStyle(PlainListStyle())
-                NavigationLink("", destination: DetailView(detail: viewModel.detailedQuit ?? Quit.example), isActive: $viewModel.isShow)
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        NavigationLink(
-                            destination: AddView(at: viewModel.addQuit(_:)),
-                            label: {
-                                Image(systemName: "plus")
-                                    .font(.title)
-                                    .foregroundColor(StaticViewProperties.SwiftUIColor.TextColor)
-                            })
-                            .frame(minWidth: 30, idealWidth: 50, maxWidth: 80, minHeight: 30, idealHeight: 50, maxHeight: 80, alignment: .center)
-                            .background(StaticViewProperties.SwiftUIColor.SaveDarkColor)
-                            .clipShape(Circle())
-                            .overlay(Circle()
-                                        .stroke(lineWidth: 0.5)
-                                        .foregroundColor(StaticViewProperties.SwiftUIColor.DetailGrey))
-                            .padding(25)
-                        
-                    }
-                }
-            }
-            .navigationBarHidden(true)
+            ListOfQuitsView(quits: $viewModel.quits)
         }
         .onAppear(perform: viewModel.fetchData)
     }
@@ -56,5 +23,28 @@ struct MainView: View {
 struct AddictionListView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+    }
+}
+
+struct ListOfQuitsView: View {
+    @Binding var quits: [Quit]
+    var body: some View {
+        List {
+            VStack(alignment: .center) {
+                ForEach (quits, id: \.id) { quit in
+                    NavigationLink(
+                        destination: DetailView(detail: quit),
+                        label: {
+                            CellView(quit: quit)
+                        })
+                    Divider()
+                }
+                Button(action: {print("hehe")}, label: {
+                    Text("Add me!")
+                })
+            }
+        }
+        .listStyle(PlainListStyle())
+        .navigationTitle("Quit")
     }
 }
