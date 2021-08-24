@@ -25,6 +25,7 @@
 		50BE16D224EACB980093B38F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50BE16D124EACB980093B38F /* Preview Assets.xcassets */; };
 		50BE16D524EACB980093B38F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BE16D324EACB980093B38F /* LaunchScreen.storyboard */; };
 		50C7E75F26CE6B5600DDDF97 /* DarkThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7E75E26CE6B5600DDDF97 /* DarkThemeButton.swift */; };
+		50D573CA26D4FF0E0009EFA2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D573C926D4FF0E0009EFA2 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		50BE16D624EACB980093B38F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50BE16DC24EACBAA0093B38F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		50C7E75E26CE6B5600DDDF97 /* DarkThemeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkThemeButton.swift; sourceTree = "<group>"; };
+		50D573C926D4FF0E0009EFA2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 				509DA6C626C800580095CE96 /* CellView */,
 				509DA6C726C8005E0095CE96 /* AddView */,
 				509DA6C826C8006C0095CE96 /* DetailView */,
+				50D573C926D4FF0E0009EFA2 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -267,7 +270,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Grzegorz Gumieniak";
 				TargetAttributes = {
 					503D1874261E0D0700239E43 = {
@@ -334,6 +337,7 @@
 			files = (
 				509A6DFB263C02CA00B80217 /* DetailView.swift in Sources */,
 				50C7E75F26CE6B5600DDDF97 /* DarkThemeButton.swift in Sources */,
+				50D573CA26D4FF0E0009EFA2 /* ContentView.swift in Sources */,
 				503D1898261E220C00239E43 /* Quit.swift in Sources */,
 				50A9537026297347006BA74B /* AddView.swift in Sources */,
 				503D1882261E0D4300239E43 /* CellView.swift in Sources */,
@@ -440,6 +444,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -501,6 +506,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

@@ -12,7 +12,7 @@ class AddViewModel: ObservableObject {
     @Published var title = ""
     @Published var description = ""
     @Published var date = Date()
-    @Published var ammount = ""
+    @Published var ammount = "0.0"
     
     private let addNewQuit: (Quit)->()
     

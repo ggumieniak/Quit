@@ -16,7 +16,20 @@ struct DetailView: View {
         ZStack {
             StaticViewProperties.SwiftUIColor.BackgroundMain
                 .ignoresSafeArea(.all)
-            if isEdit {
+            VStack {
+                VStack {
+                    QuitText(text: detail.name, font: .largeTitle)
+                    HStack {
+                        QuitText(text: "You quit at:\n\(detail.dateStart.toString())")
+                        QuitText(text: "You already saved: \(detail.ammount * detail.duration)")
+                    }
+                    QuitText(text: detail.description)
+                    Spacer()
+                }
+                .padding()
+                .background(RoundedRectangle(cornerRadius: StaticViewProperties.cornerRadius)
+                                .foregroundColor(StaticViewProperties.SwiftUIColor.BackgroundCell).padding())
+                Spacer()
                 Button(action: { isEdit.toggle()}, label: {
                     Text("Edit")
                         .bold()
@@ -28,35 +41,11 @@ struct DetailView: View {
                             .stroke(lineWidth: 1)
                             .foregroundColor(StaticViewProperties.SwiftUIColor.DetailGrey))
                 .cornerRadius(StaticViewProperties.cornerRadius).padding()
-            } else {
-                VStack {
-                    VStack {
-                        QuitText(text: detail.name, font: .largeTitle)
-                        HStack {
-                            QuitText(text: "You quit at:\n\(detail.dateStart.toString())")
-                            QuitText(text: "You already saved: \(detail.ammount * detail.duration)")
-                        }
-                        QuitText(text: detail.description)
-                        Spacer()
-                    }
-                    .padding()
-                    .background(RoundedRectangle(cornerRadius: StaticViewProperties.cornerRadius)
-                                    .foregroundColor(StaticViewProperties.SwiftUIColor.BackgroundCell).padding())
-                    Spacer()
-                    Button(action: { isEdit.toggle()}, label: {
-                        Text("Edit")
-                            .bold()
-                            .frame(height: 50)
-                            .frame(maxWidth: .infinity)
-                    })
-                    .background(StaticViewProperties.SwiftUIColor.SaveDarkColor)
-                    .overlay(RoundedRectangle(cornerRadius: StaticViewProperties.cornerRadius)
-                                .stroke(lineWidth: 1)
-                                .foregroundColor(StaticViewProperties.SwiftUIColor.DetailGrey))
-                    .cornerRadius(StaticViewProperties.cornerRadius).padding()
-                }
             }
         }
+        .sheet(isPresented: $isEdit, content: {
+            AddView(at: {_ in })
+        })
         .navigationBarTitleDisplayMode(.inline)
         .foregroundColor(StaticViewProperties.SwiftUIColor.TextColor)
     }

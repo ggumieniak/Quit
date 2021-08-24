@@ -14,19 +14,13 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                StaticViewProperties.SwiftUIColor.BackgroundMain
-                List {
-                    ForEach(viewModel.quits, id: \.id) { addiction in
-                        CellView(addiction: addiction)
-                            .listRowBackground(StaticViewProperties.SwiftUIColor.BackgroundMain)
-                            .onTapGesture {
-                                viewModel.isShow = true
-                                viewModel.detailedQuit = addiction
-                            }
-                    }
-                    .onDelete(perform: { indexSet in
-                        print("Delete")
-                    })
+                List(viewModel.quits) { addiction in
+                    CellView(addiction: addiction)
+                        .listRowBackground(StaticViewProperties.SwiftUIColor.BackgroundMain)
+                        .onTapGesture {
+                            viewModel.isShow = true
+                            viewModel.detailedQuit = addiction
+                        }
                 }
                 .listStyle(PlainListStyle())
                 NavigationLink("", destination: DetailView(detail: viewModel.detailedQuit ?? Quit.example), isActive: $viewModel.isShow)
@@ -48,7 +42,7 @@ struct MainView: View {
                                         .stroke(lineWidth: 0.5)
                                         .foregroundColor(StaticViewProperties.SwiftUIColor.DetailGrey))
                             .padding(25)
-                            
+                        
                     }
                 }
             }

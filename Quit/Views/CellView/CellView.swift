@@ -15,17 +15,11 @@ struct CellView: View {
     var body: some View {
         GeometryReader { geometry in
             HStack {
-                Circle()
-                    .foregroundColor(StaticViewProperties.SwiftUIColor.BackgroundCellLighter)
-                    .frame(width: geometry.size.width * 0.2)
-                    .overlay(Text(viewModel.duration)
-                                .font(.title3)
-                                .bold()
-                                .lineLimit(1)
-                                .padding(1))
-                    .overlay(Circle()
-                                .stroke(lineWidth: 3)
-                                .foregroundColor(StaticViewProperties.SwiftUIColor.BackgroundMain))
+                Text(viewModel.duration)
+                    .font(.title3)
+                    .bold()
+                    .lineLimit(1)
+                    .padding(1)
                 VStack(alignment: .leading) {
                     Text(viewModel.name)
                         .lineLimit(1)
@@ -35,14 +29,11 @@ struct CellView: View {
                         .bold()
                     Text("you saved now: \(viewModel.ammount)")
                         .font(.footnote)
-                        .foregroundColor(StaticViewProperties.SwiftUIColor.Citrine)
                 }
             }
             .padding()
         }
-        .foregroundColor(StaticViewProperties.SwiftUIColor.TextColor)
         .frame(height: 100)
-        .background(StaticViewProperties.SwiftUIColor.BackgroundCell.cornerRadius(StaticViewProperties.cornerRadius))
     }
 }
 
