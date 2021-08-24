@@ -40,12 +40,12 @@ extension Quit {
         addictions.append(Quit(id: UUID.init(),name: "Zielsko", description: "", dateStart: yesterday - (4*1999999), ammount: 40.00))
         addictions.append(Quit(id: UUID.init(),name: "Kofeina", description: "", dateStart: yesterday - 10*(4*1999999), ammount: 6.63))
         addictions.append(Quit(id: UUID.init(),name: "Kokaina", description: "", dateStart: yesterday - (5*10*(4*1999999)), ammount: 160))
-        addictions.append(Quit(id: UUID.init(),name: "Woda", description: "", dateStart: yesterday + 2, ammount: 0.70))
-        addictions.append(Quit(id: UUID.init(),name: "Mleko", description: "", dateStart: yesterday + 4, ammount: 2.29))
-        addictions.append(Quit(id: UUID.init(),name: "Kamień", description: "", dateStart: yesterday + 123, ammount: 0.01))
-        addictions.append(Quit(id: UUID.init(),name: "Makaron", description: "", dateStart: yesterday, ammount: 5.53))
-        addictions.append(Quit(id: UUID.init(),name: "Powietrze", description: "", dateStart: yesterday, ammount: 9999.12))
-        addictions.append(Quit(id: UUID.init(),name: "Bednarz Bednarz Bednarz Bednarz Bednarz Bednarz ", description: "", dateStart: yesterday, ammount: 999999999.30))
+        addictions.append(Quit(id: UUID.init(),name: "Woda", description: "", dateStart: yesterday - 8*(4*1999999), ammount: 0.70))
+        addictions.append(Quit(id: UUID.init(),name: "Mleko", description: "", dateStart: yesterday - 6*(4*1999999), ammount: 2.29))
+        addictions.append(Quit(id: UUID.init(),name: "Kamień", description: "", dateStart: yesterday - 4*(4*1999999), ammount: 0.01))
+        addictions.append(Quit(id: UUID.init(),name: "Makaron", description: "", dateStart: yesterday - 4*(2*1999999), ammount: 5.53))
+        addictions.append(Quit(id: UUID.init(),name: "Powietrze", description: "", dateStart: yesterday - 2*1999999, ammount: 9999.12))
+        addictions.append(Quit(id: UUID.init(),name: "Bednarz Bednarz Bednarz Bednarz Bednarz Bednarz ", description: "", dateStart: Date(), ammount: 999999999.30))
         return addictions
     }
     static var example: Quit {

@@ -41,8 +41,6 @@ struct AddView: View {
                             .keyboardType(.decimalPad)
                     }
                 }
-                Spacer()
-                DarkThemeButton(text: "Save", operation: self.viewModel.addQuit)
             }
             .padding()
         }

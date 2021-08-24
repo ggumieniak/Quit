@@ -19,32 +19,26 @@ struct MainView: View {
     }
 }
 
-
-struct AddictionListView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
-}
-
 struct ListOfQuitsView: View {
     @Binding var quits: [Quit]
     var body: some View {
         List {
-            VStack(alignment: .center) {
-                ForEach (quits, id: \.id) { quit in
-                    NavigationLink(
-                        destination: DetailView(detail: quit),
-                        label: {
-                            CellView(quit: quit)
-                        })
-                    Divider()
-                }
-                Button(action: {print("hehe")}, label: {
-                    Text("Add me!")
-                })
+            ForEach (quits, id: \.id) { quit in
+                NavigationLink(
+                    destination: DetailView(detail: quit),
+                    label: {
+                        CellView(quit: quit)
+                    })
             }
+            CenteredButton(titleOfButton: "Add Me!")
         }
         .listStyle(PlainListStyle())
         .navigationTitle("Quit")
+    }
+}
+
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
     }
 }

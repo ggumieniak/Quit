@@ -17,13 +17,11 @@ struct CellView: View {
                 NumberOfQuitDayView(duration: $viewModel.duration)
                 VStack(alignment: .leading) {
                     Text(viewModel.name)
-                        .lineLimit(1)
                         .font(.title)
                     Text(viewModel.date)
                         .font(.footnote)
                         .bold()
-                    Text("you saved now: \(viewModel.ammount)")
-                        .font(.footnote)
+                    AmmountView(ammount: $viewModel.ammount)
                 }
             }
     }
@@ -51,6 +49,19 @@ struct NumberOfQuitDayView: View {
                 .font(.title3)
                 .frame(width: 50)
             Divider()
+        }
+    }
+}
+
+struct AmmountView: View {
+    @Binding var ammount: String
+    var body: some View {
+        HStack {
+            Text("you saved now:")
+                .font(.footnote)
+            Text("\(ammount)")
+                .font(.footnote)
+                .foregroundColor(.green)
         }
     }
 }
