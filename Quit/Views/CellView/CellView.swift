@@ -27,14 +27,14 @@ struct CellView: View {
     }
 }
 
-struct AddictionCellView_Previews: PreviewProvider {
+struct CellView_Previews: PreviewProvider {
     static var previews: some View {
         CellView(quit: Quit.example)
     }
 }
 
 
-//MARK: - AddictionCellView init
+//MARK: - CellView init
 extension CellView {
     init(quit: Quit) {
         self.viewModel = CellViewModel(quit)

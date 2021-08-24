@@ -15,7 +15,6 @@ struct CenteredButton: View {
             Spacer()
             Button(action: {print("hehe")}, label: {
                 Text(titleOfButton)
-                    .foregroundColor(.blue)
             })
             Spacer()
         }

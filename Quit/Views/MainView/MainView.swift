@@ -22,18 +22,25 @@ struct MainView: View {
 struct ListOfQuitsView: View {
     @Binding var quits: [Quit]
     var body: some View {
-        List {
-            ForEach (quits, id: \.id) { quit in
-                NavigationLink(
-                    destination: DetailView(detail: quit),
-                    label: {
-                        CellView(quit: quit)
-                    })
+        Form {
+            List {
+                ForEach (quits, id: \.id) { quit in
+                    NavigationLink(
+                        destination: DetailView(detail: quit),
+                        label: {
+                            CellView(quit: quit)
+                        })
+                }
             }
-            CenteredButton(titleOfButton: "Add Me!")
+            Section(header: Text("Something new?"))
+            {
+                CenteredButton(titleOfButton: "Add me!")
+            }
         }
-        .listStyle(PlainListStyle())
         .navigationTitle("Quit")
+        .navigationBarItems(trailing: Button(action: {print("haha")}, label: {
+            Image(systemName: "plus.square").font(.title)
+        }))
     }
 }
 
