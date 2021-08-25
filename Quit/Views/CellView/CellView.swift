@@ -22,7 +22,8 @@ struct CellView: View {
                         .font(.footnote)
                         .bold()
                     AmmountView(ammount: $viewModel.ammount)
-                }
+                        
+                }.lineLimit(1)
             }
     }
 }

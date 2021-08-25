@@ -12,42 +12,36 @@ struct AddView: View {
     @ObservedObject var viewModel: AddViewModel
     
     var body: some View {
-        ZStack(alignment: .top) {
-            StaticViewProperties.SwiftUIColor.BackgroundMain.ignoresSafeArea(.all)
-            VStack(alignment: .leading) {
-                Text("Name")
-                    .bold()
-                TextField("",text: $viewModel.title)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                Text("Description")
-                    .bold()
-                TextEditor(text: $viewModel.description)
-                    .frame(maxHeight: 200)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .border(Color.init(.separator))
-                    .cornerRadius(StaticViewProperties.cornerRadius)
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Start Date")
-                            .bold()
-                        DatePicker("", selection: $viewModel.date, displayedComponents: [.date,.hourAndMinute] )
-                            .datePickerStyle(CompactDatePickerStyle())
-                            .labelsHidden()
-                    }
-                    VStack(alignment: .leading) {
-                        Text("Money per day").bold().lineLimit(1).scaledToFill()
-                        TextField("",text: $viewModel.ammount)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .keyboardType(.decimalPad)
-                    }
+        VStack(alignment: .leading) {
+            Text("Name")
+                .bold()
+            TextField("",text: $viewModel.title)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            Text("Description")
+                .bold()
+            TextEditor(text: $viewModel.description)
+                .frame(maxHeight: 200)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .overlay(RoundedRectangle(cornerRadius: 12)
+                            .stroke().foregroundColor(Color.init(.separator)))
+                
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Start Date")
+                        .bold()
+                    DatePicker("", selection: $viewModel.date, displayedComponents: [.date,.hourAndMinute] )
+                        .datePickerStyle(CompactDatePickerStyle())
+                        .labelsHidden()
+                }
+                VStack(alignment: .leading) {
+                    Text("Money per day").bold().lineLimit(1).scaledToFill()
+                    TextField("",text: $viewModel.ammount)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .keyboardType(.decimalPad)
                 }
             }
-            .padding()
-        }
-        .font(.title3)
-        .foregroundColor(StaticViewProperties.SwiftUIColor.TextColor)
-        .background(StaticViewProperties.SwiftUIColor.BackgroundMain)
-        .navigationBarTitleDisplayMode(.inline)
+            Spacer()
+        }.padding([.leading, .trailing])
     }
 }
 
