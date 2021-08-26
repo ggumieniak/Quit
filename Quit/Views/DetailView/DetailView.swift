@@ -13,41 +13,15 @@ struct DetailView: View {
     @State var isEdit = false
     
     var body: some View {
-        ZStack {
-            StaticViewProperties.SwiftUIColor.BackgroundMain
-                .ignoresSafeArea(.all)
-            VStack {
-                VStack {
-                    QuitText(text: detail.name, font: .largeTitle)
-                    HStack {
-                        QuitText(text: "You quit at:\n\(detail.dateStart.toString())")
-                        QuitText(text: "You already saved: \(detail.ammount * detail.duration)")
-                    }
-                    QuitText(text: detail.description)
-                    Spacer()
-                }
-                .padding()
-                .background(RoundedRectangle(cornerRadius: StaticViewProperties.cornerRadius)
-                                .foregroundColor(StaticViewProperties.SwiftUIColor.BackgroundCell).padding())
-                Spacer()
-                Button(action: { isEdit.toggle()}, label: {
-                    Text("Edit")
-                        .bold()
-                        .frame(height: 50)
-                        .frame(maxWidth: .infinity)
-                })
-                .background(StaticViewProperties.SwiftUIColor.SaveDarkColor)
-                .overlay(RoundedRectangle(cornerRadius: StaticViewProperties.cornerRadius)
-                            .stroke(lineWidth: 1)
-                            .foregroundColor(StaticViewProperties.SwiftUIColor.DetailGrey))
-                .cornerRadius(StaticViewProperties.cornerRadius).padding()
+        VStack(alignment: .leading) {
+            QuoteView()
+                Text(detail.description)
+            Section(header: Text("Description")) {
+                Text(detail.description)
             }
+            Spacer()
         }
-        .sheet(isPresented: $isEdit, content: {
-            AddView(at: {_ in })
-        })
-        .navigationBarTitleDisplayMode(.inline)
-        .foregroundColor(StaticViewProperties.SwiftUIColor.TextColor)
+        .navigationTitle(detail.name)
     }
 }
 
@@ -74,4 +48,23 @@ struct AddictionDetailView_Previews: PreviewProvider {
         DetailView(detail: .example)
     }
     
+}
+
+struct QuoteView: View {
+    var body: some View {
+        VStack {
+            HStack {
+                Spacer()
+                VStack {
+                    Text("Life is the flower for which love is the honey").font(.largeTitle).multilineTextAlignment(.center)
+                    HStack {
+                        Spacer()
+                        Text("Victor Hugo")
+                            .font(.body)
+                    }
+                }
+                Spacer()
+            }
+        }
+    }
 }

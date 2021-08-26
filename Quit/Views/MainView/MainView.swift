@@ -40,9 +40,8 @@ struct ListOfQuitsView: View {
         .navigationTitle("Quit")
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button(action: {print("sortowanie")},label: {
-                        Image(systemName: "arrow.up.arrow.down.circle")
-                    
+                Button(action: {print("options")},label: {
+                    Image(systemName: "ellipsis.circle")
                 })
             }
         }
