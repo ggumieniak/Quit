@@ -31,7 +31,7 @@ struct ListOfQuitsView: View {
                     NavigationLink(
                         destination: DetailView(detail: $quits[index]),
                         label: {
-                            CellView(quit: quit)
+                            CellView(quit: quit.data)
                         })
                 }
             }
@@ -58,8 +58,8 @@ struct ListOfQuitsView: View {
                     }, trailing: Button("Save") {
                         let quit = Quit(title: newQuit.title, description: newQuit.description, dateStart: newQuit.date, ammount: Double(newQuit.ammount)!)
                         quits.append(quit)
+                        newQuit = Quit.Data()
                         isPresented = false
-                        
                     })
             }
                 

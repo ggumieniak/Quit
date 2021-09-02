@@ -10,18 +10,19 @@ import Foundation
 import SwiftUI
 
 struct CellView: View {
-    @ObservedObject var viewModel: CellViewModel
+//    @ObservedObject var viewModel: CellViewModel
+    let quit: Quit.Data
     
     var body: some View {
             HStack {
-                NumberOfQuitDayView(duration: $viewModel.duration)
+                NumberOfQuitDayView(date: quit.date)
                 VStack(alignment: .leading) {
-                    Text(viewModel.name)
+                    Text(quit.title)
                         .font(.title)
-                    Text(viewModel.date, style: .date)
+                    Text(quit.date, style: .date)
                         .font(.footnote)
                         .bold()
-                    AmmountView(ammount: $viewModel.ammount)
+                    Text(quit.ammount)
                         
                 }.lineLimit(1)
             }.frame(height: 80)
@@ -30,24 +31,22 @@ struct CellView: View {
 
 struct CellView_Previews: PreviewProvider {
     static var previews: some View {
-        CellView(quit: Quit.mockQuit)
+        CellView(quit: Quit.mockQuit.data)
             .previewLayout(.sizeThatFits)
     }
 }
 
-
-//MARK: - CellView init
-extension CellView {
-    init(quit: Quit) {
-        self.viewModel = CellViewModel(quit)
-    }
-}
-
 struct NumberOfQuitDayView: View {
-    @Binding var duration: String
+    let date: Date
+    var duration: String {
+        let now = Date()
+        let duration =  (now.timeIntervalSince1970 - date.timeIntervalSince1970)/60/60/24
+        print(duration)
+        return duration >= 1 ? "\(Int(duration))" : String(format: "%.2f", duration)
+    }
     var body: some View {
         HStack {
-            Text(duration)
+            Text("\(duration)")
                 .font(.title3)
                 .frame(width: 50)
             Divider()

@@ -11,11 +11,6 @@ import Foundation
 struct Quit {
     var id: UUID
     var title: String
-    var duration: Double {
-        let now = Date()
-        let duration =  (now.timeIntervalSince1970 - date.timeIntervalSince1970)/60/60/24
-        return duration
-    }
     var description: String
     var date: Date
     var ammount: Double
@@ -35,6 +30,10 @@ extension Quit {
         var description: String = ""
         var date: Date = Date()
         var ammount: String = "1.0"
+    }
+    
+    var data: Data {
+        return Data(title: title, description: description, date: date, ammount: String(ammount))
     }
 }
 
