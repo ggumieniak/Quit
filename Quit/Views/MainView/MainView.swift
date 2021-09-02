@@ -56,7 +56,10 @@ struct ListOfQuitsView: View {
                     .navigationBarItems(leading: Button("Dismiss") {
                         isPresented = false
                     }, trailing: Button("Save") {
+                        let quit = Quit(title: newQuit.title, description: newQuit.description, dateStart: newQuit.date, ammount: Double(newQuit.ammount)!)
+                        quits.append(quit)
                         isPresented = false
+                        
                     })
             }
                 
