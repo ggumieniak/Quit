@@ -14,7 +14,7 @@ struct DetailView: View {
     
     var body: some View {
         QuitDetailView(detail: $detail, isEdit: $isEdit)
-            .navigationTitle(detail.name)
+            .navigationTitle(detail.title)
     }
 }
 
@@ -32,7 +32,10 @@ struct QuitDetailView: View {
                 Text("\(detail.ammount)")
             })
             Section(header: Text("You quit this at"), content: {
-                Text("\(detail.dateStart)")
+                HStack {
+                    Text(detail.date,style: .date)
+                    Text(detail.date, style: .time)
+                }
             })
         }.listStyle(InsetGroupedListStyle())
     }
@@ -56,10 +59,10 @@ struct QuoteView: View {
 struct AddictionDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            DetailView(detail: .constant(.example))
+            DetailView(detail: .constant(.mockQuit))
         }
         NavigationView {
-            DetailView(detail: .constant(.example))
+            DetailView(detail: .constant(.mockQuit))
                 .preferredColorScheme(.dark)
         }
     }

@@ -18,7 +18,7 @@ struct CellView: View {
                 VStack(alignment: .leading) {
                     Text(viewModel.name)
                         .font(.title)
-                    Text(viewModel.date)
+                    Text(viewModel.date, style: .date)
                         .font(.footnote)
                         .bold()
                     AmmountView(ammount: $viewModel.ammount)
@@ -30,7 +30,7 @@ struct CellView: View {
 
 struct CellView_Previews: PreviewProvider {
     static var previews: some View {
-        CellView(quit: Quit.example)
+        CellView(quit: Quit.mockQuit)
             .previewLayout(.sizeThatFits)
     }
 }

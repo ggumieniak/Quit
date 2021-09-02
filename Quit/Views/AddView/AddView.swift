@@ -16,11 +16,11 @@ struct AddView: View {
         VStack(alignment: .leading) {
             Text("Name")
                 .bold()
-            TextField("",text: $viewModel.title)
+            TextField("",text: $viewModel.quit.title)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             Text("Description")
                 .bold()
-            TextEditor(text: $viewModel.description)
+            TextEditor(text: $viewModel.quit.description)
                 .frame(maxHeight: 200)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .overlay(RoundedRectangle(cornerRadius: 12)
@@ -30,13 +30,13 @@ struct AddView: View {
                 VStack(alignment: .leading) {
                     Text("Start Date")
                         .bold()
-                    DatePicker("", selection: $viewModel.date, displayedComponents: [.date,.hourAndMinute] )
+                    DatePicker("", selection: $viewModel.quit.date, displayedComponents: [.date,.hourAndMinute] )
                         .datePickerStyle(CompactDatePickerStyle())
                         .labelsHidden()
                 }
                 VStack(alignment: .leading) {
                     Text("Money per day").bold().lineLimit(1).scaledToFill()
-                    TextField("",text: $viewModel.ammount)
+                    TextField("",text: $viewModel.quit.ammount)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.decimalPad)
                 }

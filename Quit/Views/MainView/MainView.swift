@@ -52,6 +52,11 @@ struct ListOfQuitsView: View {
         .fullScreenCover(isPresented: $isPresented) {
             NavigationView {
                 AddView(isPresented: $isPresented)
+                    .navigationBarItems(leading: Button("Dismiss") {
+                        isPresented = false
+                    }, trailing: Button("Save") {
+                        isPresented = false
+                    })
             }
                 
         }

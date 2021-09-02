@@ -24,6 +24,6 @@ class MainViewModel: ObservableObject {
     }
     
     func fetchData() {
-        quits = Quit.exampleArray
+        quits = Quit.mockQuitArray
     }
 }

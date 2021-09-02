@@ -9,8 +9,15 @@
 import Foundation
 
 class AddViewModel: ObservableObject {
-    @Published var title = ""
-    @Published var description = ""
-    @Published var date = Date()
-    @Published var ammount = "0.0"
+    @Published var quit: Quit.Data = Quit.Data()
+    
+    init(quit: Quit) {
+        self.quit.title = quit.title
+        self.quit.description = quit.description
+        self.quit.date = quit.date
+        self.quit.ammount = String(quit.ammount)
+    }
+    init(quit: Quit.Data = Quit.Data()) {
+        self.quit = quit
+    }
 }
