@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct AddView: View {
+struct EditView: View {
     @Binding var quit: Quit.Data
     var body: some View {
         VStack(alignment: .leading) {
@@ -46,10 +46,10 @@ struct AddView: View {
     }
 }
 
-struct AddView_Previews: PreviewProvider {
+struct EditView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            AddView(quit: .constant(Quit.Data.init()))
+            EditView(quit: .constant(Quit.Data.init()))
         }
     }
 }
