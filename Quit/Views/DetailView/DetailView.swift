@@ -31,7 +31,7 @@ struct DetailView: View {
         .navigationTitle(detail.title)
         .listStyle(InsetGroupedListStyle())
         .fullScreenCover(isPresented: $isEdit) {
-            AddView()
+//            AddView(quit: )
         }
     }
 }

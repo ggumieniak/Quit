@@ -9,17 +9,16 @@
 import SwiftUI
 
 struct AddView: View {
-    @ObservedObject var viewModel = AddViewModel()
-    
+    @Binding var quit: Quit.Data
     var body: some View {
         VStack(alignment: .leading) {
             Text("Name")
                 .bold()
-            TextField("",text: $viewModel.quit.title)
+            TextField("",text: $quit.title)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             Text("Description")
                 .bold()
-            TextEditor(text: $viewModel.quit.description)
+            TextEditor(text: $quit.description)
                 .frame(maxHeight: 200)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .overlay(RoundedRectangle(cornerRadius: 12)
@@ -29,30 +28,28 @@ struct AddView: View {
                 VStack(alignment: .leading) {
                     Text("Start Date")
                         .bold()
-                    DatePicker("", selection: $viewModel.quit.date, displayedComponents: [.date,.hourAndMinute] )
+                    DatePicker("", selection: $quit.date, displayedComponents: [.date,.hourAndMinute] )
                         .datePickerStyle(CompactDatePickerStyle())
                         .labelsHidden()
                 }
                 VStack(alignment: .leading) {
                     Text("Money per day").bold().lineLimit(1).scaledToFill()
-                    TextField("",text: $viewModel.quit.ammount)
+                    TextField("",text: $quit.ammount)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.decimalPad)
                 }
             }
             Spacer()
         }
-        .navigationTitle(viewModel.quit.title)
+        .navigationTitle(quit.title)
         .padding([.leading, .trailing])
     }
 }
 
-
-
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            AddView()
+            AddView(quit: .constant(Quit.Data.init()))
         }
     }
 }

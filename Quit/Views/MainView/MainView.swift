@@ -52,7 +52,7 @@ struct ListOfQuitsView: View {
         }
         .sheet(isPresented: $isPresented) {
             NavigationView {
-                AddView()
+                AddView(quit: $newQuit)
                     .navigationBarItems(leading: Button("Dismiss") {
                         isPresented = false
                     }, trailing: Button("Save") {

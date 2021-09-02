@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		501CFE4426D7686F008B4341 /* HelperLink in Resources */ = {isa = PBXBuildFile; fileRef = 501CFE4326D7686F008B4341 /* HelperLink */; };
-		501DB39C26B81AB500DB3845 /* StaticViewProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501DB39B26B81AB500DB3845 /* StaticViewProperties.swift */; };
 		503D1878261E0D0800239E43 /* QuitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1877261E0D0800239E43 /* QuitTests.swift */; };
 		503D1882261E0D4300239E43 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1881261E0D4300239E43 /* CellView.swift */; };
 		503D188A261E190600239E43 /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1889261E190600239E43 /* CellViewModel.swift */; };
@@ -41,7 +40,6 @@
 
 /* Begin PBXFileReference section */
 		501CFE4326D7686F008B4341 /* HelperLink */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelperLink; sourceTree = "<group>"; };
-		501DB39B26B81AB500DB3845 /* StaticViewProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticViewProperties.swift; sourceTree = "<group>"; };
 		503D1875261E0D0700239E43 /* QuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		503D1877261E0D0800239E43 /* QuitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitTests.swift; sourceTree = "<group>"; };
 		503D1879261E0D0800239E43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 		501EE7AA263AA6E800F7ECAB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				501DB39B26B81AB500DB3845 /* StaticViewProperties.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -349,7 +346,6 @@
 				5072EFF226B1B95400AFB44E /* Date+toString.swift in Sources */,
 				508DD06526BC3C2900784B4D /* AddViewModel.swift in Sources */,
 				503D1894261E21F600239E43 /* MainViewModel.swift in Sources */,
-				501DB39C26B81AB500DB3845 /* StaticViewProperties.swift in Sources */,
 				50BE16C924EACB970093B38F /* AppDelegate.swift in Sources */,
 				50BE16CB24EACB970093B38F /* SceneDelegate.swift in Sources */,
 				50BE16CD24EACB970093B38F /* MainView.swift in Sources */,
