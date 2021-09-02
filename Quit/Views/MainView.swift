@@ -24,16 +24,14 @@ struct ListOfQuitsView: View {
     @State var isPresented = false
     @State var newQuit: Quit.Data = Quit.Data()
     var body: some View {
-        Form {
-            List {
-                ForEach (quits, id: \.id) { quit in
-                    let index = quits.firstIndex(where: { $0.id == quit.id})!
-                    NavigationLink(
-                        destination: DetailView(detail: $quits[index]),
-                        label: {
-                            CellView(quit: quit.data)
-                        })
-                }
+        List {
+            ForEach (quits, id: \.id) { quit in
+                let index = quits.firstIndex(where: { $0.id == quit.id})!
+                NavigationLink(
+                    destination: DetailView(quit: $quits[index]),
+                    label: {
+                        CellView(quit: quit.data)
+                    })
             }
             Section(header: Text("Something new?"))
             {
@@ -42,6 +40,7 @@ struct ListOfQuitsView: View {
                 }
             }
         }
+        .listStyle(InsetGroupedListStyle())
         .navigationTitle("Quit")
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
@@ -62,7 +61,7 @@ struct ListOfQuitsView: View {
                         isPresented = false
                     })
             }
-                
+            
         }
     }
 }

@@ -35,6 +35,13 @@ extension Quit {
     var data: Data {
         return Data(title: title, description: description, date: date, ammount: String(ammount))
     }
+    
+    mutating func update(from data: Quit.Data) {
+        title = data.title
+        description = data.description
+        date = data.date
+        ammount = Double(data.ammount)!
+    }
 }
 
 extension Quit {

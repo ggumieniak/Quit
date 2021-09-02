@@ -9,29 +9,42 @@
 import SwiftUI
 
 struct DetailView: View {
-    @Binding var detail: Quit
-    @State var isEdit = false
+    @Binding var quit: Quit
+    @State var newQuit: Quit.Data = Quit.Data()
+    @State var isPresented = false
     var body: some View {
         List {
             QuoteView()
-            Text(detail.description)
+            Text(quit.description)
             Section(header: Text("Description")) {
-                Text(detail.description)
+                Text(quit.description)
             }
             Section(header: Text("You saved already"), content: {
-                Text("\(detail.ammount)")
+                Text("\(quit.ammount)")
             })
             Section(header: Text("You quit this at"), content: {
                 HStack {
-                    Text(detail.date,style: .date)
-                    Text(detail.date, style: .time)
+                    Text(quit.date,style: .date)
+                    Text(quit.date, style: .time)
                 }
             })
         }
-        .navigationTitle(detail.title)
+        .navigationTitle(quit.title)
         .listStyle(InsetGroupedListStyle())
-        .fullScreenCover(isPresented: $isEdit) {
-//            AddView(quit: )
+        .navigationBarItems(trailing: Button("Edit") {
+            isPresented = true
+            newQuit = quit.data
+        })
+        .fullScreenCover(isPresented: $isPresented) {
+            NavigationView {
+                EditView(quit: $newQuit)
+                    .navigationBarItems(leading: Button("Dismiss") {
+                        isPresented = false
+                    }, trailing: Button("Save"){
+                        quit.update(from: newQuit)
+                        isPresented = false
+                    })
+            }
         }
     }
 }
@@ -54,10 +67,10 @@ struct QuoteView: View {
 struct AddictionDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            DetailView(detail: .constant(.mockQuit))
+            DetailView(quit: .constant(Quit.mockQuit))
         }
         NavigationView {
-            DetailView(detail: .constant(.mockQuit))
+            DetailView(quit: .constant(Quit.mockQuit))
                 .preferredColorScheme(.dark)
         }
     }
