@@ -13,23 +13,4 @@ class AddViewModel: ObservableObject {
     @Published var description = ""
     @Published var date = Date()
     @Published var ammount = "0.0"
-    
-    private let addNewQuit: (Quit)->()
-    
-    init(at addNewQuit: @escaping (Quit)->()) {
-        self.addNewQuit = addNewQuit
-    }
-    
-    func addQuit() {
-        let quit = Quit(id: UUID.init(), name: title, description: description, dateStart: date,ammount: Double(ammount)!)
-        addNewQuit(quit)
-        clearInput()
-    }
-    
-    private func clearInput() {
-        title = ""
-        description = ""
-        ammount = ""
-        date = Date()
-    }
 }

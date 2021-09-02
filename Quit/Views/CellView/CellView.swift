@@ -24,13 +24,14 @@ struct CellView: View {
                     AmmountView(ammount: $viewModel.ammount)
                         
                 }.lineLimit(1)
-            }
+            }.frame(height: 80)
     }
 }
 
 struct CellView_Previews: PreviewProvider {
     static var previews: some View {
         CellView(quit: Quit.example)
+            .previewLayout(.sizeThatFits)
     }
 }
 

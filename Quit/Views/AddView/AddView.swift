@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct AddView: View {
-    @ObservedObject var viewModel: AddViewModel
+    @ObservedObject var viewModel = AddViewModel()
+    @Binding var isPresented: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -45,15 +46,11 @@ struct AddView: View {
     }
 }
 
-extension AddView {
-    init(at addQuit: @escaping (Quit)->()) {
-        self.viewModel = AddViewModel(at: addQuit)
-    }
-}
-
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
-        AddView(at: addMock(AddView_Previews()))
+        NavigationView {
+            AddView(isPresented: .constant(true))
+        }
     }
     
     func addMock(quit: Quit){}

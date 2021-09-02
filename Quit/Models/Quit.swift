@@ -8,16 +8,15 @@
 
 import Foundation
 
-protocol QuitType: Identifiable {
-    var id: UUID { get }
-    var name: String { get }
-    var description: String { get }
-    var duration: Double { get }
-    var dateStart: Date { get }
-    var ammount: Double { get }
-}
-
-struct Quit: QuitType {
+struct Quit {
+    internal init(id: UUID = UUID.init(), name: String, description: String, dateStart: Date, ammount: Double) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.dateStart = dateStart
+        self.ammount = ammount
+    }
+    
     var id: UUID
     var name: String
     var duration: Double {
@@ -28,6 +27,7 @@ struct Quit: QuitType {
     var description: String
     var dateStart: Date
     var ammount: Double
+    
     
 }
 

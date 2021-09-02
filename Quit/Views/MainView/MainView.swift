@@ -21,12 +21,14 @@ struct MainView: View {
 
 struct ListOfQuitsView: View {
     @Binding var quits: [Quit]
+    @State var isPresented = false
     var body: some View {
         Form {
             List {
                 ForEach (quits, id: \.id) { quit in
+                    let index = quits.firstIndex(where: { $0.id == quit.id})!
                     NavigationLink(
-                        destination: DetailView(detail: quit),
+                        destination: DetailView(detail: $quits[index]),
                         label: {
                             CellView(quit: quit)
                         })
@@ -34,7 +36,9 @@ struct ListOfQuitsView: View {
             }
             Section(header: Text("Something new?"))
             {
-                CenteredButton(titleOfButton: "Add me!")
+                CenteredButton(titleOfButton: "Add me!") {
+                    self.isPresented = true
+                }
             }
         }
         .navigationTitle("Quit")
@@ -44,6 +48,12 @@ struct ListOfQuitsView: View {
                     Image(systemName: "ellipsis.circle")
                 })
             }
+        }
+        .fullScreenCover(isPresented: $isPresented) {
+            NavigationView {
+                AddView(isPresented: $isPresented)
+            }
+                
         }
     }
 }

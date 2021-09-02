@@ -10,10 +10,11 @@ import SwiftUI
 
 struct CenteredButton: View {
     let titleOfButton: String
+    let action: () -> Void
     var body: some View {
         HStack {
             Spacer()
-            Button(action: {print("hehe")}, label: {
+            Button(action: action, label: {
                 Text(titleOfButton)
             })
             Spacer()
@@ -23,7 +24,8 @@ struct CenteredButton: View {
 
 struct CenteredButtonPreviews: PreviewProvider {
     static var previews: some View {
-        CenteredButton(titleOfButton: "Hello World!")
+        CenteredButton(titleOfButton: "Hello World!", action: {})
+            .previewLayout(.sizeThatFits)
     }
 }
 

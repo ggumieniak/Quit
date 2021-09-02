@@ -9,13 +9,12 @@
 import SwiftUI
 
 struct DetailView: View {
-    @State var detail: Quit
+    @Binding var detail: Quit
     @State var isEdit = false
     
     var body: some View {
         QuitDetailView(detail: $detail, isEdit: $isEdit)
-        .padding()
-        .navigationTitle(detail.name)
+            .navigationTitle(detail.name)
     }
 }
 
@@ -23,15 +22,19 @@ struct QuitDetailView: View {
     @Binding var detail: Quit
     @Binding var isEdit: Bool
     var body: some View {
-        VStack(alignment: .leading) {
+        List {
             QuoteView()
-            Divider()
             Text(detail.description)
             Section(header: Text("Description")) {
                 Text(detail.description)
             }
-            Spacer()
-        }
+            Section(header: Text("You saved already"), content: {
+                Text("\(detail.ammount)")
+            })
+            Section(header: Text("You quit this at"), content: {
+                Text("\(detail.dateStart)")
+            })
+        }.listStyle(InsetGroupedListStyle())
     }
 }
 
@@ -39,7 +42,7 @@ struct QuoteView: View {
     var body: some View {
         VStack {
             Text("Life is the flower for which love is the honey")
-                .font(.largeTitle)
+                .font(.title)
             HStack {
                 Spacer()
                 Text("Victor Hugo")
@@ -52,9 +55,11 @@ struct QuoteView: View {
 
 struct AddictionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            DetailView(detail: .example)
-            DetailView(detail: .example)
+        NavigationView {
+            DetailView(detail: .constant(.example))
+        }
+        NavigationView {
+            DetailView(detail: .constant(.example))
                 .preferredColorScheme(.dark)
         }
     }
