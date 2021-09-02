@@ -11,16 +11,6 @@ import SwiftUI
 struct DetailView: View {
     @Binding var detail: Quit
     @State var isEdit = false
-    
-    var body: some View {
-        QuitDetailView(detail: $detail, isEdit: $isEdit)
-            .navigationTitle(detail.title)
-    }
-}
-
-struct QuitDetailView: View {
-    @Binding var detail: Quit
-    @Binding var isEdit: Bool
     var body: some View {
         List {
             QuoteView()
@@ -37,7 +27,12 @@ struct QuitDetailView: View {
                     Text(detail.date, style: .time)
                 }
             })
-        }.listStyle(InsetGroupedListStyle())
+        }
+        .navigationTitle(detail.title)
+        .listStyle(InsetGroupedListStyle())
+        .fullScreenCover(isPresented: $isEdit) {
+            AddView()
+        }
     }
 }
 

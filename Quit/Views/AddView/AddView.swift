@@ -10,7 +10,6 @@ import SwiftUI
 
 struct AddView: View {
     @ObservedObject var viewModel = AddViewModel()
-    @Binding var isPresented: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -42,16 +41,18 @@ struct AddView: View {
                 }
             }
             Spacer()
-        }.padding([.leading, .trailing])
+        }
+        .navigationTitle(viewModel.quit.title)
+        .padding([.leading, .trailing])
     }
 }
+
+
 
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            AddView(isPresented: .constant(true))
+            AddView()
         }
     }
-    
-    func addMock(quit: Quit){}
 }

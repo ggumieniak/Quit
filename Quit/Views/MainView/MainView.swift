@@ -22,6 +22,7 @@ struct MainView: View {
 struct ListOfQuitsView: View {
     @Binding var quits: [Quit]
     @State var isPresented = false
+    @State var newQuit: Quit.Data = Quit.Data()
     var body: some View {
         Form {
             List {
@@ -49,9 +50,9 @@ struct ListOfQuitsView: View {
                 })
             }
         }
-        .fullScreenCover(isPresented: $isPresented) {
+        .sheet(isPresented: $isPresented) {
             NavigationView {
-                AddView(isPresented: $isPresented)
+                AddView()
                     .navigationBarItems(leading: Button("Dismiss") {
                         isPresented = false
                     }, trailing: Button("Save") {
