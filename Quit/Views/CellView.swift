@@ -19,12 +19,14 @@ struct CellView: View {
                 VStack(alignment: .leading) {
                     Text(quit.title)
                         .font(.title)
+                        .bold()
                     Text(quit.date, style: .date)
                         .font(.footnote)
                         .bold()
                     Text(quit.ammount)
+                        .foregroundColor(.green)
                         
-                }.lineLimit(1)
+                }
             }.frame(height: 80)
     }
 }
@@ -38,10 +40,9 @@ struct CellView_Previews: PreviewProvider {
 
 struct NumberOfQuitDayView: View {
     let date: Date
-    var duration: String {
+    private var duration: String {
         let now = Date()
         let duration =  (now.timeIntervalSince1970 - date.timeIntervalSince1970)/60/60/24
-        print(duration)
         return duration >= 1 ? "\(Int(duration))" : String(format: "%.2f", duration)
     }
     var body: some View {
@@ -49,6 +50,7 @@ struct NumberOfQuitDayView: View {
             Text("\(duration)")
                 .font(.title3)
                 .frame(width: 50)
+                .lineLimit(1)
             Divider()
         }
     }

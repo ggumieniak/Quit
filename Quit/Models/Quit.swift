@@ -33,7 +33,7 @@ extension Quit {
     }
     
     var data: Data {
-        return Data(title: title, description: description, date: date, ammount: String(ammount))
+        return Data(title: title, description: description, date: date, ammount: String(format: "%.2f", ammount))
     }
     
     mutating func update(from data: Quit.Data) {
