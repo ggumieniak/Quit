@@ -23,7 +23,7 @@ struct CellView: View {
                     Text(quit.date, style: .date)
                         .font(.footnote)
                         .bold()
-                    Text(quit.ammount)
+                    Text(quit.ammountSaved)
                         .foregroundColor(.green)
                         
                 }

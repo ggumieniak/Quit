@@ -29,7 +29,16 @@ extension Quit {
         var title: String = "New Addiction"
         var description: String = ""
         var date: Date = Date()
-        var ammount: String = "1.0"
+        var ammount: String = "1.00"
+        var ammountSaved: String {
+            get {
+                let now = Date().timeIntervalSince1970
+                let diff = (now - date.timeIntervalSince1970)/60/60/24
+                let summary = diff * Double(ammount)!
+                return String(format: "%.2f", summary)
+            }
+            set {}
+        }
     }
     
     var data: Data {

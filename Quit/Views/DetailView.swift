@@ -15,17 +15,16 @@ struct DetailView: View {
     var body: some View {
         List {
             QuoteView()
-            Text(quit.description)
             Section(header: Text("Description")) {
-                Text(quit.description)
+                Text(quit.data.description)
             }
             Section(header: Text("You saved already"), content: {
-                Text("\(quit.ammount)")
+                Text(quit.data.ammountSaved)
             })
             Section(header: Text("You quit this at"), content: {
                 HStack {
-                    Text(quit.date,style: .date)
-                    Text(quit.date, style: .time)
+                    Text(quit.data.date,style: .date)
+                    Text(quit.data.date, style: .time)
                 }
             })
         }
