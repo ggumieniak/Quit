@@ -76,3 +76,4 @@ extension Quit {
         return Quit(id: UUID.init(),title: "Woda", description: "Wodnista woda nie bede jej nigdy pil", dateStart: yesterday, ammount: 7012.42)
     }
 }
+
