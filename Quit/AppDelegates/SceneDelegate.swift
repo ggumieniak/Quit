@@ -61,9 +61,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     //MARK: - Core Data
     lazy var persistentContainer: NSPersistentContainer = {
-         let container = NSPersistentContainer(name: "Quits")
+        let container = NSPersistentContainer(name: Keys.CoreData.entityName)
          container.loadPersistentStores { description, error in
              if let error = error {
+                //FIXME: Add error handling
                  fatalError("Unable to load persistent stores: \(error)")
              }
          }
