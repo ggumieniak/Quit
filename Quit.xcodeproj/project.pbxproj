@@ -17,6 +17,7 @@
 		509A6DFB263C02CA00B80217 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509A6DFA263C02CA00B80217 /* DetailView.swift */; };
 		50A3487726E757A600EB0EDE /* Quits+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3487526E757A600EB0EDE /* Quits+CoreDataClass.swift */; };
 		50A3487826E757A600EB0EDE /* Quits+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3487626E757A600EB0EDE /* Quits+CoreDataProperties.swift */; };
+		50A3487D26E775C700EB0EDE /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3487C26E775C700EB0EDE /* Repository.swift */; };
 		50A35DC626E641F30077AB03 /* Quits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50A35DC426E641F30077AB03 /* Quits.xcdatamodeld */; };
 		50A9537026297347006BA74B /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A9536F26297347006BA74B /* EditView.swift */; };
 		50BE16C924EACB970093B38F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE16C824EACB970093B38F /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 		509A6DFA263C02CA00B80217 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		50A3487526E757A600EB0EDE /* Quits+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quits+CoreDataClass.swift"; sourceTree = "<group>"; };
 		50A3487626E757A600EB0EDE /* Quits+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quits+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		50A3487C26E775C700EB0EDE /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		50A35DC526E641F30077AB03 /* Quits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quits.xcdatamodel; sourceTree = "<group>"; };
 		50A9536F26297347006BA74B /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		50BE16C524EACB970093B38F /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +129,14 @@
 			path = "Core Data Model";
 			sourceTree = "<group>";
 		};
+		50A3487A26E775AB00EB0EDE /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				50A3487C26E775C700EB0EDE /* Repository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		50BE16BC24EACB970093B38F = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +161,7 @@
 		50BE16C724EACB970093B38F /* Quit */ = {
 			isa = PBXGroup;
 			children = (
+				50A3487A26E775AB00EB0EDE /* Repository */,
 				50A3487926E757BC00EB0EDE /* Core Data Model */,
 				5072EFF026B1B5E600AFB44E /* Extensions */,
 				501EE7AA263AA6E800F7ECAB /* Utils */,
@@ -317,6 +328,7 @@
 			files = (
 				50A35DC626E641F30077AB03 /* Quits.xcdatamodeld in Sources */,
 				509A6DFB263C02CA00B80217 /* DetailView.swift in Sources */,
+				50A3487D26E775C700EB0EDE /* Repository.swift in Sources */,
 				50A3487826E757A600EB0EDE /* Quits+CoreDataProperties.swift in Sources */,
 				50D573CA26D4FF0E0009EFA2 /* ContentView.swift in Sources */,
 				503D1898261E220C00239E43 /* Quit.swift in Sources */,

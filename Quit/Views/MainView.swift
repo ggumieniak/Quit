@@ -10,7 +10,6 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var viewModel = MainViewModel()
-    @FetchRequest(entity: Quits.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Quits.title, ascending: true)]) var quits: FetchedResults<Quits>
     
     var body: some View {
         NavigationView {
