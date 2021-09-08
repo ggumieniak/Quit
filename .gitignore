@@ -89,6 +89,7 @@ fastlane/test_output
 
 iOSInjectionProject/
 
-Playgroud.playground/
+Test.playground/
+Test.playground/*
 
 HelperLink
