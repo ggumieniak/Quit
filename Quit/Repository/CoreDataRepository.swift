@@ -9,7 +9,12 @@
 import Foundation
 import CoreData
 
+enum CoreDataRepositoryError: Error {
+    case invalidManagedObjectType
+}
+
 class CoreDataRepository<T: NSManagedObject>: Repository {
+
     typealias Entity = T
     
     private let managedObjectContext: NSManagedObjectContext
@@ -18,13 +23,24 @@ class CoreDataRepository<T: NSManagedObject>: Repository {
         self.managedObjectContext = managedObjectContext
     }
     
-    func get(id: Int, completionHandler: (T?, Error) -> Void) {}
+    func get() -> Result<[T], Error> {
+        let className = String(describing: Entity.self)
+        guard let managedObject = NSEntityDescription.insertNewObject(forEntityName: className, into: managedObjectContext) as? Entity else {
+            return .failure(CoreDataRepositoryError.invalidManagedObjectType)
+        }
+    }
     
-    func list(completionHandler: ([T]?, Error) -> Void) {}
+    func add(_ entity: T) -> Result<T, Error> {
+        <#code#>
+    }
     
-    func add(_ item: T, completionHandler: (Error?) -> Void) {}
+    func put(_ entity: T) -> Result<T, Error> {
+        <#code#>
+    }
     
-    func edit(_ item: T, completionHandler: (Error?) -> Void) {}
+    func delete(entity: T) -> Result<Bool, Error> {
+        <#code#>
+    }
     
-    
+
 }
