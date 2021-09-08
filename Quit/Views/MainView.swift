@@ -7,15 +7,21 @@
 //
 
 import SwiftUI
-
+import CoreData
 struct MainView: View {
-    @StateObject private var viewModel = MainViewModel()
+    @ObservedObject private var viewModel: MainViewModel
     
     var body: some View {
         NavigationView {
             ListOfQuitsView(quits: $viewModel.quits)
         }
         .onAppear(perform: viewModel.fetchData)
+    }
+}
+
+extension MainView {
+    init(context: NSManagedObjectContext) {
+        viewModel = MainViewModel(context: context)
     }
 }
 
@@ -68,7 +74,7 @@ struct ListOfQuitsView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
-        MainView().preferredColorScheme(.dark)
+        MainView(context: NSManagedObjectContext())
+        MainView(context: NSManagedObjectContext()).preferredColorScheme(.dark)
     }
 }
