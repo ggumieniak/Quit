@@ -31,6 +31,7 @@
 		50BE16D524EACB980093B38F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BE16D324EACB980093B38F /* LaunchScreen.storyboard */; };
 		50D573CA26D4FF0E0009EFA2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D573C926D4FF0E0009EFA2 /* ContentView.swift */; };
 		50D573CC26D51FA80009EFA2 /* CenteredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D573CB26D51FA80009EFA2 /* CenteredButton.swift */; };
+		50EFF21C26E90B250008204D /* UnitOfWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EFF21B26E90B250008204D /* UnitOfWork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		50BE16DC24EACBAA0093B38F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		50D573C926D4FF0E0009EFA2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		50D573CB26D51FA80009EFA2 /* CenteredButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredButton.swift; sourceTree = "<group>"; };
+		50EFF21926E8ECD10008204D /* Test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Test.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		50EFF21B26E90B250008204D /* UnitOfWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitOfWork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +145,7 @@
 				50A3487C26E775C700EB0EDE /* Repository.swift */,
 				50A3487E26E778A400EB0EDE /* CoreDataRepository.swift */,
 				50A3488226E8DE5F00EB0EDE /* QuitRepository.swift */,
+				50EFF21B26E90B250008204D /* UnitOfWork.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -149,6 +153,7 @@
 		50BE16BC24EACB970093B38F = {
 			isa = PBXGroup;
 			children = (
+				50EFF21926E8ECD10008204D /* Test.playground */,
 				501CFE4326D7686F008B4341 /* HelperLink */,
 				503D188D261E1C3500239E43 /* .gitignore */,
 				50BE16DC24EACBAA0093B38F /* README.md */,
@@ -335,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50EFF21C26E90B250008204D /* UnitOfWork.swift in Sources */,
 				50A35DC626E641F30077AB03 /* Quits.xcdatamodeld in Sources */,
 				50A3488126E77DB300EB0EDE /* Keys.swift in Sources */,
 				509A6DFB263C02CA00B80217 /* DetailView.swift in Sources */,
