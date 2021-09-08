@@ -11,6 +11,8 @@ import CoreData
 
 enum CoreDataRepositoryError: Error {
     case invalidManagedObjectType
+    
+    case notImplemented
 }
 
 class CoreDataRepository<T: NSManagedObject>: Repository {
@@ -23,24 +25,22 @@ class CoreDataRepository<T: NSManagedObject>: Repository {
         self.managedObjectContext = managedObjectContext
     }
     
-    func get() -> Result<[T], Error> {
-        let className = String(describing: Entity.self)
-        guard let managedObject = NSEntityDescription.insertNewObject(forEntityName: className, into: managedObjectContext) as? Entity else {
-            return .failure(CoreDataRepositoryError.invalidManagedObjectType)
+    func get(predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> Result<[T], Error> {
+        let fetchRequest = Entity.fetchRequest()
+        fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = sortDescriptors
+        do {
+            return .failure(CoreDataRepositoryError.notImplemented)
+        } catch {
+            return .failure(error)
         }
     }
     
-    func add(_ entity: T) -> Result<T, Error> {
-        <#code#>
-    }
+    func add(_ entity: T) -> Result<T, Error> { .failure(CoreDataRepositoryError.notImplemented)}
     
-    func put(_ entity: T) -> Result<T, Error> {
-        <#code#>
-    }
+    func put(_ entity: T) -> Result<T, Error> { .failure(CoreDataRepositoryError.notImplemented)}
     
-    func delete(entity: T) -> Result<Bool, Error> {
-        <#code#>
-    }
+    func delete(entity: T) -> Result<Bool, Error> { .failure(CoreDataRepositoryError.notImplemented)}
     
 
 }

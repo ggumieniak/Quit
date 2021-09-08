@@ -12,7 +12,7 @@ import Combine
 protocol Repository {
     associatedtype Entity
     
-    func get() -> Result<[Entity],Error>
+    func get(predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> Result<[Entity],Error>
     func add(_ entity: Entity) -> Result<Entity,Error>
     func put(_ entity: Entity) -> Result<Entity,Error>
     func delete(entity: Entity) -> Result<Bool,Error>
