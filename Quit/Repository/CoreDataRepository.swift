@@ -25,22 +25,26 @@ class CoreDataRepository<T: NSManagedObject>: Repository {
         self.managedObjectContext = managedObjectContext
     }
     
-    func get(predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> Result<[T], Error> {
+    func get(predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> Result<[Entity], Error> {
         let fetchRequest = Entity.fetchRequest()
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = sortDescriptors
         do {
-            return .failure(CoreDataRepositoryError.notImplemented)
+            if let fetchResults = try managedObjectContext.fetch(fetchRequest) as? [Entity] {
+                return .success(fetchResults)
+            } else {
+                return .failure(CoreDataRepositoryError.invalidManagedObjectType)
+            }
         } catch {
             return .failure(error)
         }
     }
     
-    func add(_ entity: T) -> Result<T, Error> { .failure(CoreDataRepositoryError.notImplemented)}
+    func add(_ entity: Entity) -> Result<Entity, Error> { .failure(CoreDataRepositoryError.notImplemented)}
     
-    func put(_ entity: T) -> Result<T, Error> { .failure(CoreDataRepositoryError.notImplemented)}
+    func put(_ entity: Entity) -> Result<Entity, Error> { .failure(CoreDataRepositoryError.notImplemented)}
     
-    func delete(entity: T) -> Result<Bool, Error> { .failure(CoreDataRepositoryError.notImplemented)}
+    func delete(entity: Entity) -> Result<Bool, Error> { .failure(CoreDataRepositoryError.notImplemented)}
     
 
 }
