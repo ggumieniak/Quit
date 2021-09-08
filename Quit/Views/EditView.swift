@@ -8,19 +8,17 @@
 
 import SwiftUI
 
-struct AddView: View {
-    @ObservedObject var viewModel = AddViewModel()
-    @Binding var isPresented: Bool
-    
+struct EditView: View {
+    @Binding var quit: Quit.Data
     var body: some View {
         VStack(alignment: .leading) {
             Text("Name")
                 .bold()
-            TextField("",text: $viewModel.title)
+            TextField("",text: $quit.title)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             Text("Description")
                 .bold()
-            TextEditor(text: $viewModel.description)
+            TextEditor(text: $quit.description)
                 .frame(maxHeight: 200)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .overlay(RoundedRectangle(cornerRadius: 12)
@@ -30,28 +28,28 @@ struct AddView: View {
                 VStack(alignment: .leading) {
                     Text("Start Date")
                         .bold()
-                    DatePicker("", selection: $viewModel.date, displayedComponents: [.date,.hourAndMinute] )
+                    DatePicker("", selection: $quit.date, displayedComponents: [.date,.hourAndMinute] )
                         .datePickerStyle(CompactDatePickerStyle())
                         .labelsHidden()
                 }
                 VStack(alignment: .leading) {
                     Text("Money per day").bold().lineLimit(1).scaledToFill()
-                    TextField("",text: $viewModel.ammount)
+                    TextField("",text: $quit.ammount)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.decimalPad)
                 }
             }
             Spacer()
-        }.padding([.leading, .trailing])
+        }
+        .navigationTitle(quit.title)
+        .padding([.leading, .trailing])
     }
 }
 
-struct AddView_Previews: PreviewProvider {
+struct EditView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            AddView(isPresented: .constant(true))
+            EditView(quit: .constant(Quit.Data.init()))
         }
     }
-    
-    func addMock(quit: Quit){}
 }

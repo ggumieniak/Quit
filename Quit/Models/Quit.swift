@@ -9,47 +9,71 @@
 import Foundation
 
 struct Quit {
-    internal init(id: UUID = UUID.init(), name: String, description: String, dateStart: Date, ammount: Double) {
-        self.id = id
-        self.name = name
-        self.description = description
-        self.dateStart = dateStart
-        self.ammount = ammount
-    }
-    
     var id: UUID
-    var name: String
-    var duration: Double {
-        let now = Date()
-        let duration =  (now.timeIntervalSince1970 - dateStart.timeIntervalSince1970)/60/60/24
-        return duration
-    }
+    var title: String
     var description: String
-    var dateStart: Date
+    var date: Date
     var ammount: Double
     
-    
+    init(id: UUID = UUID.init(), title: String, description: String, dateStart: Date, ammount: Double) {
+        self.id = id
+        self.title = title
+        self.description = description
+        self.date = dateStart
+        self.ammount = ammount
+    }
 }
 
 extension Quit {
-    static var exampleArray: [Quit] {
-        var addictions = [Quit]()
-        let yesterday = Calendar.current.date(byAdding: .day,value: -1, to: Date())!
-        addictions.append(Quit(id: UUID.init(),name: "Papierosy", description: "", dateStart: yesterday, ammount: 15.50))
-        addictions.append(Quit(id: UUID.init(),name: "Alkohol", description: "", dateStart: yesterday - 1999999, ammount: 32.12))
-        addictions.append(Quit(id: UUID.init(),name: "Zielsko", description: "", dateStart: yesterday - (4*1999999), ammount: 40.00))
-        addictions.append(Quit(id: UUID.init(),name: "Kofeina", description: "", dateStart: yesterday - 10*(4*1999999), ammount: 6.63))
-        addictions.append(Quit(id: UUID.init(),name: "Kokaina", description: "", dateStart: yesterday - (5*10*(4*1999999)), ammount: 160))
-        addictions.append(Quit(id: UUID.init(),name: "Woda", description: "", dateStart: yesterday - 8*(4*1999999), ammount: 0.70))
-        addictions.append(Quit(id: UUID.init(),name: "Mleko", description: "", dateStart: yesterday - 6*(4*1999999), ammount: 2.29))
-        addictions.append(Quit(id: UUID.init(),name: "Kamień", description: "", dateStart: yesterday - 4*(4*1999999), ammount: 0.01))
-        addictions.append(Quit(id: UUID.init(),name: "Makaron", description: "", dateStart: yesterday - 4*(2*1999999), ammount: 5.53))
-        addictions.append(Quit(id: UUID.init(),name: "Powietrze", description: "", dateStart: yesterday - 2*1999999, ammount: 9999.12))
-        addictions.append(Quit(id: UUID.init(),name: "Bednarz Bednarz Bednarz Bednarz Bednarz Bednarz ", description: "", dateStart: Date(), ammount: 999999999.30))
-        return addictions
+    struct Data {
+        var title: String = "New Addiction"
+        var description: String = ""
+        var date: Date = Date()
+        var ammount: String = "1.00"
+        var ammountSaved: String {
+            get {
+                let now = Date().timeIntervalSince1970
+                let diff = (now - date.timeIntervalSince1970)/60/60/24
+                let summary = diff * Double(ammount)!
+                return String(format: "%.2f", summary)
+            }
+            set {}
+        }
     }
-    static var example: Quit {
-        let yesterday = Calendar.current.date(byAdding: .month,value: -1, to: Date())!
-        return Quit(id: UUID.init(),name: "Woda", description: "Wodnista woda nie bede jej nigdy pil", dateStart: yesterday, ammount: 7012.42)
+    
+    var data: Data {
+        return Data(title: title, description: description, date: date, ammount: String(format: "%.2f", ammount))
+    }
+    
+    mutating func update(from data: Quit.Data) {
+        title = data.title
+        description = data.description
+        date = data.date
+        ammount = Double(data.ammount)!
     }
 }
+
+extension Quit {
+    
+    static var mockQuitArray: [Quit] {
+        var addictions = [Quit]()
+        let yesterday = Calendar.current.date(byAdding: .day,value: -1, to: Date())!
+        addictions.append(Quit(id: UUID.init(),title: "Papierosy", description: "", dateStart: yesterday, ammount: 15.50))
+        addictions.append(Quit(id: UUID.init(),title: "Alkohol", description: "", dateStart: yesterday - 1999999, ammount: 32.12))
+        addictions.append(Quit(id: UUID.init(),title: "Zielsko", description: "", dateStart: yesterday - (4*1999999), ammount: 40.00))
+        addictions.append(Quit(id: UUID.init(),title: "Kofeina", description: "", dateStart: yesterday - 10*(4*1999999), ammount: 6.63))
+        addictions.append(Quit(id: UUID.init(),title: "Kokaina", description: "", dateStart: yesterday - (5*10*(4*1999999)), ammount: 160))
+        addictions.append(Quit(id: UUID.init(),title: "Woda", description: "", dateStart: yesterday - 8*(4*1999999), ammount: 0.70))
+        addictions.append(Quit(id: UUID.init(),title: "Mleko", description: "", dateStart: yesterday - 6*(4*1999999), ammount: 2.29))
+        addictions.append(Quit(id: UUID.init(),title: "Kamień", description: "", dateStart: yesterday - 4*(4*1999999), ammount: 0.01))
+        addictions.append(Quit(id: UUID.init(),title: "Makaron", description: "", dateStart: yesterday - 4*(2*1999999), ammount: 5.53))
+        addictions.append(Quit(id: UUID.init(),title: "Powietrze", description: "", dateStart: yesterday - 2*1999999, ammount: 9999.12))
+        addictions.append(Quit(id: UUID.init(),title: "Bednarz Bednarz Bednarz Bednarz Bednarz Bednarz ", description: "", dateStart: Date(), ammount: 999999999.30))
+        return addictions
+    }
+    static var mockQuit: Quit {
+        let yesterday = Calendar.current.date(byAdding: .month,value: -1, to: Date())!
+        return Quit(id: UUID.init(),title: "Woda", description: "Wodnista woda nie bede jej nigdy pil", dateStart: yesterday, ammount: 7012.42)
+    }
+}
+
