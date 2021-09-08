@@ -7,16 +7,24 @@
 //
 
 import Foundation
+import CoreData
 
-class CoreDataRepository: Repository {
-    typealias T = Quit
-    func get(id: Int, completionHandler: (Quit?, Error) -> Void) {
-        
+class CoreDataRepository<T: NSManagedObject>: Repository {
+    typealias Entity = T
+    
+    private let managedObjectContext: NSManagedObjectContext
+    
+    init(managedObjectContext: NSManagedObjectContext) {
+        self.managedObjectContext = managedObjectContext
     }
     
-    func list(completionHandler: ([Quit]?, Error) -> Void) {}
+    func get(id: Int, completionHandler: (T?, Error) -> Void) {}
     
-    func add(_ item: Quit, completionHandler: (Error?) -> Void) {}
+    func list(completionHandler: ([T]?, Error) -> Void) {}
     
-    func edit(_ item: Quit, completionHandler: (Error?) -> Void) {}
+    func add(_ item: T, completionHandler: (Error?) -> Void) {}
+    
+    func edit(_ item: T, completionHandler: (Error?) -> Void) {}
+    
+    
 }

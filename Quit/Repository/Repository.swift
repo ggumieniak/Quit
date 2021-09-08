@@ -10,19 +10,19 @@ import Foundation
 import Combine
 
 protocol Repository {
-    associatedtype T
+    associatedtype Entity
     
-    func get(id: Int, completionHandler: (T?,Error) -> Void)
-    func list(completionHandler: ([T]?, Error) -> Void)
-    func add(_ item: T, completionHandler: (Error?) -> Void)
-    func edit(_ item: T, completionHandler: (Error?) -> Void)
+    func get(id: Int, completionHandler: (Entity?,Error) -> Void)
+    func list(completionHandler: ([Entity]?, Error) -> Void)
+    func add(_ item: Entity, completionHandler: (Error?) -> Void)
+    func edit(_ item: Entity, completionHandler: (Error?) -> Void)
 }
 protocol CombineRepository {
-    associatedtype T
+    associatedtype Entity
     
-    func get(id: Int) -> AnyPublisher<T, Error>
-    func list() -> AnyPublisher<[T], Error>
-    func add(_ item: T) -> AnyPublisher<Void, Error>
-    func delete(_ item: T) -> AnyPublisher<Void, Error>
-    func edit(_ item: T) -> AnyPublisher<Void, Error>
+    func get(id: Int) -> AnyPublisher<Entity, Error>
+    func list() -> AnyPublisher<[Entity], Error>
+    func add(_ item: Entity) -> AnyPublisher<Void, Error>
+    func delete(_ item: Entity) -> AnyPublisher<Void, Error>
+    func edit(_ item: Entity) -> AnyPublisher<Void, Error>
 }
