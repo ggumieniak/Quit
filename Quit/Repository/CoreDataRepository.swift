@@ -40,9 +40,15 @@ class CoreDataRepository<T: NSManagedObject>: Repository {
         }
     }
     
-    func add(_ entity: Entity) -> Result<Entity, Error> { .failure(CoreDataRepositoryError.notImplemented)}
+    func create() -> Result<Entity, Error> {
+        let className = String(describing: Entity.self)
+        guard let managedObject = NSEntityDescription.insertNewObject(forEntityName: className, into: managedObjectContext) as? Entity else {
+            return .failure(CoreDataRepositoryError.invalidManagedObjectType)
+        }
+        return .success(managedObject)
+    }
     
-    func put(_ entity: Entity) -> Result<Entity, Error> { .failure(CoreDataRepositoryError.notImplemented)}
+    func update(_ entity: Entity) -> Result<Entity, Error> { .failure(CoreDataRepositoryError.notImplemented)}
     
     func delete(entity: Entity) -> Result<Bool, Error> { .failure(CoreDataRepositoryError.notImplemented)}
     

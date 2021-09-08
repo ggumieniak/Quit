@@ -18,10 +18,10 @@ extension Quits {
     }
 
     @NSManaged public var ammount: Double
-    @NSManaged public var date: Date?
-    @NSManaged public var id: UUID?
-    @NSManaged public var qDescription: String?
-    @NSManaged public var title: String?
+    @NSManaged public var date: Date
+    @NSManaged public var id: UUID
+    @NSManaged public var qDescription: String
+    @NSManaged public var title: String
 
 }
 
