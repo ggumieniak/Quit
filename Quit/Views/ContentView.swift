@@ -12,6 +12,7 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     var body: some View {
         MainView(context: managedObjectContext)
+            .environmentObject(QuitsStore(context: managedObjectContext))
     }
 }
 

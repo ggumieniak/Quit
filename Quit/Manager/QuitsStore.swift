@@ -29,7 +29,7 @@ class QuitsStore: ObservableObject {
         }
     }
     
-    private func addQuit(quit: Quit) {
+    func addQuit(quit: Quit) {
         quits.append(quit)
         unitOfWork.quitRepository.create(quit: quit)
         unitOfWork.saveChanges()
