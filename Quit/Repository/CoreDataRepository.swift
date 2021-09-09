@@ -11,7 +11,6 @@ import CoreData
 
 enum CoreDataRepositoryError: Error {
     case invalidManagedObjectType
-    
     case notImplemented
 }
 

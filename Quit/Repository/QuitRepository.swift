@@ -9,6 +9,11 @@
 import Foundation
 import CoreData
 
+enum QuitRepositoryError: Error {
+    case unableToCreateAnDomainObject
+    case unableToAccessObjectFromDBContext
+}
+
 protocol QuitRepositoryProtocol {
     func getQuits(predicate: NSPredicate?) -> Result<[Quit], Error>
     func create(quit: Quit) -> Result<Bool, Error>
@@ -31,8 +36,8 @@ extension QuitRepository: QuitRepositoryProtocol {
                     return Quit(id: quitMO.id, title: quitMO.title, description: quitMO.qDescription, dateStart: quitMO.date, ammount: quitMO.ammount)
                 }
                 return .success(quits)
-        case .failure(let error):
-            return .failure(error)
+        case .failure:
+            return .failure(QuitRepositoryError.unableToAccessObjectFromDBContext)
         }
     }
     
@@ -46,8 +51,8 @@ extension QuitRepository: QuitRepositoryProtocol {
             quitMO.date = quit.date
             quitMO.title = quit.title
             return .success(true)
-        case .failure(let error):
-            return .failure(error)
+        case .failure:
+            return .failure(QuitRepositoryError.unableToCreateAnDomainObject)
         }
     }
     
