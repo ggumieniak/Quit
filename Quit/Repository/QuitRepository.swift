@@ -12,6 +12,7 @@ import CoreData
 enum QuitRepositoryError: Error {
     case unableToCreateAnDomainObject
     case unableToAccessObjectFromDBContext
+    case notFindedSpecificEntityInCoreData
     case notImplemented
 }
 
@@ -58,7 +59,10 @@ extension QuitRepository: QuitRepositoryProtocol {
     }
     
     @discardableResult func delete(quit: Quit) -> Result<Bool, Error> {
-        return .failure(QuitRepositoryError.notImplemented)
+        guard let entity = repository.getSpecificEntityById(id: quit.id) else {
+            return .failure(QuitRepositoryError.notFindedSpecificEntityInCoreData)
+        }
+        return repository.delete(entity: entity)
     }
     
 }

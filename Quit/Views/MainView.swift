@@ -40,6 +40,12 @@ struct ListOfQuitsView: View {
                         CellView(quit: quit.data)
                     })
             }
+            .onDelete(perform: { indexSet in
+                for index in indexSet {
+                    quitsStore.unitOfWork.quitRepository.delete(quit: quits[index])
+                }
+                
+            })
             Section(header: Text("Something new?"))
             {
                 CenteredButton(titleOfButton: "Add me!") {

@@ -59,9 +59,7 @@ class CoreDataRepository<T: NSManagedObject>: Repository {
         item.predicate = NSPredicate(format: "id == %@", id.uuidString)
         do {
             if let result = try managedObjectContext.fetch(item) as? [Entity] {
-                for item in result {
-                    print(item)
-                }
+                return result.first!
             }
             return nil
         } catch {
