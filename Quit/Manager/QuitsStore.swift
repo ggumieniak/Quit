@@ -15,5 +15,23 @@ class QuitsStore: ObservableObject {
     let unitOfWork: UnitOfWork
     init(context: NSManagedObjectContext) {
         unitOfWork = UnitOfWork(context: context)
+        quits = getQuits()
+    }
+    
+    private func getQuits() -> [Quit] {
+        let result = unitOfWork.quitRepository.getQuits(predicate: nil)
+        switch result {
+        case .success(let array):
+            return array
+        case .failure(let error):
+            print(error)
+            return []
+        }
+    }
+    
+    private func addQuit(quit: Quit) {
+        quits.append(quit)
+        unitOfWork.quitRepository.create(quit: quit)
+        unitOfWork.saveChanges()
     }
 }
