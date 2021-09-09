@@ -49,7 +49,27 @@ class CoreDataRepository<T: NSManagedObject>: Repository {
     
     func update(_ entity: Entity) -> Result<Entity, Error> { .failure(CoreDataRepositoryError.notImplemented)}
     
-    func delete(entity: Entity) -> Result<Bool, Error> { .failure(CoreDataRepositoryError.notImplemented)}
+    func delete(entity: Entity) -> Result<Bool, Error> {
+//        managedObjectContext.existingObject(with: entity.id) as? Entity
+        return .failure(CoreDataRepositoryError.notImplemented)
+    }
+    
+    func getSpecificEntityById(id: UUID) -> Entity? {
+        let item = Entity.fetchRequest()
+        item.predicate = NSPredicate(format: "id == %@", id.uuidString)
+        do {
+            if let result = try managedObjectContext.fetch(item) as? [Entity] {
+                for item in result {
+                    print(item)
+                }
+            }
+            return nil
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+    
     
 
 }

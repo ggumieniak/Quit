@@ -12,6 +12,7 @@ import CoreData
 enum QuitRepositoryError: Error {
     case unableToCreateAnDomainObject
     case unableToAccessObjectFromDBContext
+    case notImplemented
 }
 
 protocol QuitRepositoryProtocol {
@@ -56,5 +57,8 @@ extension QuitRepository: QuitRepositoryProtocol {
         }
     }
     
+    @discardableResult func delete(quit: Quit) -> Result<Bool, Error> {
+        return .failure(QuitRepositoryError.notImplemented)
+    }
     
 }
