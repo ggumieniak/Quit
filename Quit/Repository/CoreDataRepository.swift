@@ -48,12 +48,7 @@ class CoreDataRepository<T: NSManagedObject>: Repository {
     }
     
     func update(_ entity: Entity) -> Result<Entity, Error> {
-        do {
-            try managedObjectContext.save()
-            return .success(entity)
-        } catch {
-            return .failure(CoreDataRepositoryError.invalidManagedObjectType)
-        }
+        .success(entity)
     }
     
     func delete(entity: Entity) -> Result<Bool, Error> {

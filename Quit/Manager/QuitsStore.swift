@@ -39,6 +39,11 @@ class QuitsStore: ObservableObject {
         unitOfWork.saveChanges()
     }
     
+    func updateQuit(quit: Quit) {
+        unitOfWork.quitRepository.update(quit: quit)
+        unitOfWork.saveChanges()
+    }
+    
     func deleteQuit(atOffsets: IndexSet) {
         quits.remove(atOffsets: atOffsets)
         guard let index = atOffsets.first else {

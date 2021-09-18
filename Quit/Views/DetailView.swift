@@ -12,6 +12,7 @@ struct DetailView: View {
     @Binding var quit: Quit
     @State var newQuit: Quit.Data = Quit.Data()
     @State var isPresented = false
+    @EnvironmentObject var quitsStore: QuitsStore
     var body: some View {
         List {
             QuoteView()
@@ -41,6 +42,7 @@ struct DetailView: View {
                         isPresented = false
                     }, trailing: Button("Save"){
                         quit.update(from: newQuit)
+                        quitsStore.updateQuit(quit: quit)
                         isPresented = false
                     })
             }
