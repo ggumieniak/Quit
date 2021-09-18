@@ -10,12 +10,12 @@ import SwiftUI
 import CoreData
 struct MainView: View {
     @ObservedObject private var viewModel: MainViewModel
+    @EnvironmentObject var quitsStore: QuitsStore
     
     var body: some View {
         NavigationView {
-            ListOfQuitsView(quits: $viewModel.quits)
+            ListOfQuitsView(quits: $quitsStore.quits)
         }
-        .onAppear(perform: viewModel.fetchData)
     }
 }
 
@@ -26,6 +26,7 @@ extension MainView {
 }
 
 struct ListOfQuitsView: View {
+    @EnvironmentObject var quitsStore: QuitsStore
     @Binding var quits: [Quit]
     @State var isPresented = false
     @State var newQuit: Quit.Data = Quit.Data()
@@ -39,6 +40,9 @@ struct ListOfQuitsView: View {
                         CellView(quit: quit.data)
                     })
             }
+            .onDelete(perform: { indexSet in
+                quitsStore.deleteQuit(atOffsets: indexSet)
+            })
             Section(header: Text("Something new?"))
             {
                 CenteredButton(titleOfButton: "Add me!") {
@@ -62,7 +66,7 @@ struct ListOfQuitsView: View {
                         isPresented = false
                     }, trailing: Button("Save") {
                         let quit = Quit(title: newQuit.title, description: newQuit.description, dateStart: newQuit.date, ammount: Double(newQuit.ammount)!)
-                        quits.append(quit)
+                        quitsStore.addQuit(quit: quit)
                         newQuit = Quit.Data()
                         isPresented = false
                     })

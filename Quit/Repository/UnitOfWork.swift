@@ -9,6 +9,10 @@
 import Foundation
 import CoreData
 
+enum UnitOfWorkError: Error {
+    case UnableToSave
+}
+
 class UnitOfWork {
     private let context: NSManagedObjectContext
     let quitRepository: QuitRepository
@@ -24,7 +28,7 @@ class UnitOfWork {
             return .success(true)
         } catch {
             context.rollback()
-            return .failure(error)
+            return .failure(UnitOfWorkError.UnableToSave)
         }
     }
 }

@@ -23,6 +23,7 @@
 		50A3488326E8DE5F00EB0EDE /* QuitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3488226E8DE5F00EB0EDE /* QuitRepository.swift */; };
 		50A35DC626E641F30077AB03 /* Quits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50A35DC426E641F30077AB03 /* Quits.xcdatamodeld */; };
 		50A9537026297347006BA74B /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A9536F26297347006BA74B /* EditView.swift */; };
+		50B92EAF26E9EA8500307CB6 /* QuitsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B92EAE26E9EA8500307CB6 /* QuitsStore.swift */; };
 		50BE16C924EACB970093B38F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE16C824EACB970093B38F /* AppDelegate.swift */; };
 		50BE16CB24EACB970093B38F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE16CA24EACB970093B38F /* SceneDelegate.swift */; };
 		50BE16CD24EACB970093B38F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE16CC24EACB970093B38F /* MainView.swift */; };
@@ -63,6 +64,7 @@
 		50A3488226E8DE5F00EB0EDE /* QuitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitRepository.swift; sourceTree = "<group>"; };
 		50A35DC526E641F30077AB03 /* Quits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quits.xcdatamodel; sourceTree = "<group>"; };
 		50A9536F26297347006BA74B /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		50B92EAE26E9EA8500307CB6 /* QuitsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitsStore.swift; sourceTree = "<group>"; };
 		50BE16C524EACB970093B38F /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BE16C824EACB970093B38F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50BE16CA24EACB970093B38F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,14 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		50B92EAD26E9EA6E00307CB6 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				50B92EAE26E9EA8500307CB6 /* QuitsStore.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		50BE16BC24EACB970093B38F = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +185,7 @@
 		50BE16C724EACB970093B38F /* Quit */ = {
 			isa = PBXGroup;
 			children = (
+				50B92EAD26E9EA6E00307CB6 /* Manager */,
 				50A3487A26E775AB00EB0EDE /* Repository */,
 				50A3487926E757BC00EB0EDE /* Core Data Model */,
 				5072EFF026B1B5E600AFB44E /* Extensions */,
@@ -350,6 +361,7 @@
 				503D1898261E220C00239E43 /* Quit.swift in Sources */,
 				50A9537026297347006BA74B /* EditView.swift in Sources */,
 				503D1882261E0D4300239E43 /* CellView.swift in Sources */,
+				50B92EAF26E9EA8500307CB6 /* QuitsStore.swift in Sources */,
 				50D573CC26D51FA80009EFA2 /* CenteredButton.swift in Sources */,
 				50A3488326E8DE5F00EB0EDE /* QuitRepository.swift in Sources */,
 				5072EFF226B1B95400AFB44E /* Date+toString.swift in Sources */,
