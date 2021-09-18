@@ -10,6 +10,10 @@ import Foundation
 import Combine
 import CoreData
 
+enum QuitsStoreError: Error {
+    case NotFoundIndexAtOffset
+}
+
 class QuitsStore: ObservableObject {
     @Published var quits: [Quit] = []
     let unitOfWork: UnitOfWork
@@ -32,6 +36,16 @@ class QuitsStore: ObservableObject {
     func addQuit(quit: Quit) {
         quits.append(quit)
         unitOfWork.quitRepository.create(quit: quit)
+        unitOfWork.saveChanges()
+    }
+    
+    func deleteQuit(atOffsets: IndexSet) {
+        quits.remove(atOffsets: atOffsets)
+        guard let index = atOffsets.first else {
+            print(QuitsStoreError.NotFoundIndexAtOffset)
+            return
+        }
+        unitOfWork.quitRepository.delete(quit: quits[index])
         unitOfWork.saveChanges()
     }
 }

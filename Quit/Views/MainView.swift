@@ -41,10 +41,7 @@ struct ListOfQuitsView: View {
                     })
             }
             .onDelete(perform: { indexSet in
-                for index in indexSet {
-                    quitsStore.unitOfWork.quitRepository.delete(quit: quits[index])
-                }
-                
+                quitsStore.deleteQuit(atOffsets: indexSet)
             })
             Section(header: Text("Something new?"))
             {

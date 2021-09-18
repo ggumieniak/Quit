@@ -19,6 +19,8 @@ enum QuitRepositoryError: Error {
 protocol QuitRepositoryProtocol {
     func getQuits(predicate: NSPredicate?) -> Result<[Quit], Error>
     func create(quit: Quit) -> Result<Bool, Error>
+    func update(quit: Quit) -> Result<Bool, Error>
+    func delete(quit: Quit) -> Result<Bool, Error>
 }
 
 class QuitRepository {
@@ -56,6 +58,29 @@ extension QuitRepository: QuitRepositoryProtocol {
         case .failure:
             return .failure(QuitRepositoryError.unableToCreateAnDomainObject)
         }
+    }
+    
+    @discardableResult func update(quit: Quit) -> Result<Bool, Error> {
+        guard let entity = repository.getSpecificEntityById(id: quit.id) else {
+            return .failure(QuitRepositoryError.notFindedSpecificEntityInCoreData)
+        }
+        entity.ammount = quit.ammount
+        entity.date = quit.date
+        entity.id = quit.id
+        entity.qDescription = quit.description
+        entity.title = quit.title
+        let item = repository.update(entity)
+        switch item {
+        case .success(let quitMO):
+            if entity == quitMO {
+                return .success(true)
+            } else {
+                return .failure(QuitRepositoryError.notFindedSpecificEntityInCoreData)
+            }
+        case .failure(let error):
+            return .failure(error)
+        }
+        
     }
     
     @discardableResult func delete(quit: Quit) -> Result<Bool, Error> {

@@ -47,11 +47,18 @@ class CoreDataRepository<T: NSManagedObject>: Repository {
         return .success(managedObject)
     }
     
-    func update(_ entity: Entity) -> Result<Entity, Error> { .failure(CoreDataRepositoryError.notImplemented)}
+    func update(_ entity: Entity) -> Result<Entity, Error> {
+        do {
+            try managedObjectContext.save()
+            return .success(entity)
+        } catch {
+            return .failure(CoreDataRepositoryError.invalidManagedObjectType)
+        }
+    }
     
     func delete(entity: Entity) -> Result<Bool, Error> {
-//        managedObjectContext.existingObject(with: entity.id) as? Entity
-        return .failure(CoreDataRepositoryError.notImplemented)
+        managedObjectContext.delete(entity)
+        return .success(true)
     }
     
     func getSpecificEntityById(id: UUID) -> Entity? {
